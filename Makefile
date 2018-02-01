@@ -14,7 +14,7 @@ NAME	= nanotekspice
 
 RM	= rm -f
 
-CC	= g++
+CC	= g++ -std=c++1z
 
 CFLAGS	= -I include -std=c++1z
 CFLAGS	+= -Wall -Wextra -W -ferror-limit=200
