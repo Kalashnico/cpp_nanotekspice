@@ -3,40 +3,47 @@
 //
 
 #include "Gates.hpp"
+#include "Component/IComponent.hpp"
 
-bool and_gate(bool a, bool b)
+bool and_gate(nts::Tristate a, nts::Tristate b)
 {
+	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
+		return nts::UNDEFINED;
 	return a && b;
 }
 
-bool or_gate(bool a, bool b)
+bool or_gate(nts::Tristate a, nts::Tristate b)
 {
+	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
+		return nts::UNDEFINED;
 	return a || b;
 }
 
-bool nand_gate(bool a, bool b)
+bool nand_gate(nts::Tristate a, nts::Tristate b)
 {
+	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
+		return nts::UNDEFINED;
 	return !(a && b);
 }
 
-bool nor_gate(bool a, bool b)
+bool nor_gate(nts::Tristate a, nts::Tristate b)
 {
+	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
+		return nts::UNDEFINED;
 	return !(a || b);
 }
 
-bool flip_flop(bool &state)
+bool xor_gate(nts::Tristate a, nts::Tristate b)
 {
-	state = !state;
-	return state;
-}
-
-bool xor_gate(bool a, bool b)
-{
+	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
+		return nts::UNDEFINED;
 	return a != b;
 }
 
-bool inverter_gate(bool &state)
+bool inverter_gate(nts::Tristate &state)
 {
+	if (state == nts::UNDEFINED)
+		return nts::UNDEFINED;
 	state = !state;
 	return state;
 }
