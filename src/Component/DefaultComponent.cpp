@@ -59,6 +59,24 @@ static std::string TristateToString(nts::Tristate value)
 	return str;
 }
 
+static std::string PinTypeToString(pin::Type value)
+{
+	std::string str;
+
+	switch (value) {
+	case pin::INPUT:
+		str = "INPUT";
+		break;
+	case pin::OUTPUT:
+		str = "OUTPUT";
+		break;
+	default:
+		str = "UNUSED";
+		break;
+	}
+	return str;
+}
+
 void nts::DefaultComponent::dump() const
 {
 	std::cout << "Node " << this->name << ":" << std::endl;
@@ -66,6 +84,9 @@ void nts::DefaultComponent::dump() const
 		std::cout << "\tPin #" << i << " -> ";
 		std::cout << "Value: " <<
 			TristateToString(pins[i - 1].value) << ", ";
-		std::cout << "Linked: " << std::boolalpha << pins[i - 1].isLinked << std::endl;
+		std::cout << "Linked: " << std::boolalpha <<
+			pins[i - 1].isLinked << ", ";
+		std::cout << "Type: " << PinTypeToString(pins[i - 1].type)
+			<< std::endl;
 	}
 }

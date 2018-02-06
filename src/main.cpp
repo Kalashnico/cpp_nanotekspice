@@ -7,7 +7,5 @@ int main() {
 	c1.setLink(1, c2, 3);
 	c1.dump();
 	c2.dump();
-	if (c1.getPin(1)->otherPin != NULL)
-		std::cout << "Hello, World!" << std::endl;
 	return 0;
 }
