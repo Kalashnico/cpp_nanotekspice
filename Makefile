@@ -17,10 +17,13 @@ RM	= rm -f
 CC	= g++ -std=c++1z
 
 CFLAGS	= -I include -std=c++1z
-CFLAGS	+= -Wall -Wextra -W -ferror-limit=200
+CFLAGS	+= -Wall -Wextra -W
 
 
-SRC	= src/main.cpp
+SRC	= src/main.cpp \
+      src/Component/Component4001.cpp \
+      src/Gates.cpp
+
 
 OBJ	= $(SRC:.cpp=.o)
 

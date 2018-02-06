@@ -5,46 +5,46 @@
 #include "Gates.hpp"
 #include "Component/IComponent.hpp"
 
-bool and_gate(nts::Tristate a, nts::Tristate b)
+nts::Tristate and_gate(nts::Tristate a, nts::Tristate b)
 {
 	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
 		return nts::UNDEFINED;
-	return a && b;
+	return (a == nts::TRUE && b == nts::TRUE) ? nts::TRUE : nts::FALSE;
 }
 
-bool or_gate(nts::Tristate a, nts::Tristate b)
+nts::Tristate or_gate(nts::Tristate a, nts::Tristate b)
 {
 	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
 		return nts::UNDEFINED;
-	return a || b;
+	return (a == nts::TRUE || b == nts::TRUE) ? nts::TRUE : nts::FALSE;
 }
 
-bool nand_gate(nts::Tristate a, nts::Tristate b)
+nts::Tristate nand_gate(nts::Tristate a, nts::Tristate b)
 {
 	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
 		return nts::UNDEFINED;
-	return !(a && b);
+	return (!(a == nts::TRUE && b == nts::TRUE)) ? nts::TRUE : nts::FALSE;
 }
 
-bool nor_gate(nts::Tristate a, nts::Tristate b)
+nts::Tristate nor_gate(nts::Tristate a, nts::Tristate b)
 {
 	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
 		return nts::UNDEFINED;
-	return !(a || b);
+	return (!(a == nts::TRUE || b == nts::TRUE)) ? nts::TRUE : nts::FALSE;
 }
 
-bool xor_gate(nts::Tristate a, nts::Tristate b)
+nts::Tristate xor_gate(nts::Tristate a, nts::Tristate b)
 {
 	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
 		return nts::UNDEFINED;
-	return a != b;
+	return (a == nts::TRUE != b == nts::TRUE) ? nts::TRUE : nts::FALSE;
 }
 
-bool inverter_gate(nts::Tristate &state)
+nts::Tristate inverter_gate(nts::Tristate &state)
 {
 	if (state == nts::UNDEFINED)
 		return nts::UNDEFINED;
-	state = !state;
+	state = (state == nts::TRUE) ? nts::FALSE : nts::TRUE;
 	return state;
 }
 
