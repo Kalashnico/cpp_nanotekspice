@@ -9,7 +9,9 @@
 
 namespace nts {
 
-	enum Tristate {
+	class IComponent;
+
+	enum class Tristate : int {
 		UNDEFINED = (-true),
 		TRUE = true,
 		FALSE = false
@@ -29,7 +31,12 @@ namespace pin {
                 Type type;
                 nts::Tristate value;
                 Pin *otherPin;
-		Pin() : isLinked(false), type(UNUSED), value(nts::UNDEFINED), otherPin(NULL) {}
+		nts::IComponent *owner;
+		Pin()
+			: isLinked(false), type(UNUSED),
+			value(nts::Tristate::UNDEFINED), otherPin(NULL),
+			owner(NULL)
+		{}
     };
 }
 

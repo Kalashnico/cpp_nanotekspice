@@ -7,44 +7,49 @@
 
 nts::Tristate and_gate(nts::Tristate a, nts::Tristate b)
 {
-	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
-		return nts::UNDEFINED;
-	return (a == nts::TRUE && b == nts::TRUE) ? nts::TRUE : nts::FALSE;
+	if (a == nts::Tristate::UNDEFINED || b == nts::Tristate::UNDEFINED)
+		return nts::Tristate::UNDEFINED;
+	return (a == nts::Tristate::TRUE && b == nts::Tristate::TRUE) ?
+		nts::Tristate::TRUE : nts::Tristate::FALSE;
 }
 
 nts::Tristate or_gate(nts::Tristate a, nts::Tristate b)
 {
-	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
-		return nts::UNDEFINED;
-	return (a == nts::TRUE || b == nts::TRUE) ? nts::TRUE : nts::FALSE;
+	if (a == nts::Tristate::UNDEFINED || b == nts::Tristate::UNDEFINED)
+		return nts::Tristate::UNDEFINED;
+	return (a == nts::Tristate::TRUE || b == nts::Tristate::TRUE) ?
+		nts::Tristate::TRUE : nts::Tristate::FALSE;
 }
 
 nts::Tristate nand_gate(nts::Tristate a, nts::Tristate b)
 {
-	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
-		return nts::UNDEFINED;
-	return (!(a == nts::TRUE && b == nts::TRUE)) ? nts::TRUE : nts::FALSE;
+	if (a == nts::Tristate::UNDEFINED || b == nts::Tristate::UNDEFINED)
+		return nts::Tristate::UNDEFINED;
+	return (!(a == nts::Tristate::TRUE && b == nts::Tristate::TRUE)) ?
+		nts::Tristate::TRUE : nts::Tristate::FALSE;
 }
 
 nts::Tristate nor_gate(nts::Tristate a, nts::Tristate b)
 {
-	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
-		return nts::UNDEFINED;
-	return (!(a == nts::TRUE || b == nts::TRUE)) ? nts::TRUE : nts::FALSE;
+	if (a == nts::Tristate::UNDEFINED || b == nts::Tristate::UNDEFINED)
+		return nts::Tristate::UNDEFINED;
+	return (!(a == nts::Tristate::TRUE || b == nts::Tristate::TRUE)) ?
+		nts::Tristate::TRUE : nts::Tristate::FALSE;
 }
 
 nts::Tristate xor_gate(nts::Tristate a, nts::Tristate b)
 {
-	if (a == nts::UNDEFINED || b == nts::UNDEFINED)
-		return nts::UNDEFINED;
-	return (a == nts::TRUE != b == nts::TRUE) ? nts::TRUE : nts::FALSE;
+	if (a == nts::Tristate::UNDEFINED || b == nts::Tristate::UNDEFINED)
+		return nts::Tristate::UNDEFINED;
+	return (a != b) ? nts::Tristate::TRUE : nts::Tristate::FALSE;
 }
 
 nts::Tristate inverter_gate(nts::Tristate &state)
 {
-	if (state == nts::UNDEFINED)
-		return nts::UNDEFINED;
-	state = (state == nts::TRUE) ? nts::FALSE : nts::TRUE;
+	if (state == nts::Tristate::UNDEFINED)
+		return nts::Tristate::UNDEFINED;
+	state = (state == nts::Tristate::TRUE) ?
+		nts::Tristate::FALSE : nts::Tristate::TRUE;
 	return state;
 }
 

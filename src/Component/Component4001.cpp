@@ -2,6 +2,7 @@
 // Created by Nicolas Guerin on 01/02/2018.
 //
 
+#include "Gates.hpp"
 #include "Component/Component4001.hpp"
 
 nts::Component4001::Component4001(std::string name)
@@ -27,18 +28,26 @@ nts::Component4001::Component4001(std::string name)
 
 	this->pins[13].type = pin::UNUSED;
 
-	for (unsigned int i = 0; i < this->pinNumber; i++) {
-		this->pins[i].value = UNDEFINED;
-	}
 }
 
 nts::Component4001::~Component4001()
 {
 }
 
+
+
 nts::Tristate nts::Component4001::compute(size_t pin)
 {
-	(void)pin;
-	return UNDEFINED;
+	pin -= 1;
+	nts::Tristate  value;
+	if (pins[pin].type == pin::OUTPUT) {
+		pins[pin].value = or_gate(pins[pin - 1].value,
+			pins[pin - 2].value);
+		value = pins[pin].value;
+	} else if (pins[pin].type == pin::INPUT)
+		value = pins[pin].owner->compute();
+	else
+		value = Tristate::UNDEFINED;
+	return value;
 }
 

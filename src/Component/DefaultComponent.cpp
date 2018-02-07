@@ -8,6 +8,11 @@ nts::DefaultComponent::DefaultComponent(size_t pinNumber, std::string name)
 	: pinNumber(pinNumber), name(name)
 {
 	pins = new pin::Pin[pinNumber];
+
+	for (unsigned int i = 0; i < this->pinNumber; i++) {
+		this->pins[i].value = Tristate::UNDEFINED;
+		this->pins[i].owner = this;
+	}
 }
 
 nts::DefaultComponent::~DefaultComponent()
@@ -46,10 +51,10 @@ static std::string TristateToString(nts::Tristate value)
 	std::string str;
 
 	switch (value) {
-	case nts::TRUE:
+	case nts::Tristate::TRUE:
 		str = "TRUE";
 		break;
-	case nts::FALSE:
+	case nts::Tristate::FALSE:
 		str = "FALSE";
 		break;
 	default:
