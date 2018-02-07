@@ -12,6 +12,7 @@ nts::DefaultComponent::DefaultComponent(size_t pinNumber, std::string name)
 	for (unsigned int i = 0; i < this->pinNumber; i++) {
 		this->pins[i].value = Tristate::UNDEFINED;
 		this->pins[i].owner = this;
+		this->pins[i].pos = i + 1;
 	}
 }
 
@@ -32,10 +33,8 @@ void nts::DefaultComponent::setLink(std::size_t pin, nts::IComponent &other,
 	if (pins[pin - 1].type != other.getPin(otherPin)->type) {
 		pins[pin - 1].isLinked = true;
 		other.getPin(otherPin)->isLinked = true;
-		if (pins[pin - 1].type == pin::INPUT)
-			pins[pin - 1].otherPin = other.getPin(otherPin);
-		else
-			other.getPin(otherPin)->otherPin = &pins[pin - 1];
+		pins[pin - 1].otherPin = other.getPin(otherPin);
+		other.getPin(otherPin)->otherPin = &pins[pin - 1];
 	}
 }
 

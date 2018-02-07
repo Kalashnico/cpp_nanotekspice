@@ -41,12 +41,13 @@ nts::Tristate nts::Component4001::compute(size_t pin)
 	pin -= 1;
 	nts::Tristate  value;
 	if (pins[pin].type == pin::OUTPUT) {
-		pins[pin].value = or_gate(pins[pin - 1].value,
-			pins[pin - 2].value);
+		pins[pin].value = or_gate(this->compute(pin),
+			this->compute(pin - 1));
 		value = pins[pin].value;
-	} else if (pins[pin].type == pin::INPUT)
-		value = pins[pin].owner->compute();
-	else
+	} else if (pins[pin].type == pin::INPUT) {
+		value = pins[pin].otherPin->owner->compute(
+			pins[pin].otherPin->pos);
+	} else
 		value = Tristate::UNDEFINED;
 	return value;
 }
