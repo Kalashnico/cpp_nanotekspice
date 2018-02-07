@@ -17,5 +17,6 @@ nts::ComponentInput::~ComponentInput()
 
 nts::Tristate nts::ComponentInput::compute(size_t pin)
 {
+	(void)pin;
 	return pins[0].value;
 }

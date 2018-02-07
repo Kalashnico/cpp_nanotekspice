@@ -14,7 +14,7 @@ namespace nts {
 		public:
 			ComponentInput(std::string name, nts::Tristate value);
 			~ComponentInput();
-			Tristate compute(size_t pin) override;
+			Tristate compute(size_t pin = 1) override;
 	};
 
 }

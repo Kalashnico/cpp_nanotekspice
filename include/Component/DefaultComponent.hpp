@@ -23,7 +23,7 @@ namespace nts {
 				std::size_t otherPin) override;
 			pin::Pin *getPin(size_t idx) override;
 
-			virtual Tristate compute(size_t pin) override = 0;
+			virtual Tristate compute(size_t pin = 1) override = 0;
 			virtual void dump() const override;
 
 	};

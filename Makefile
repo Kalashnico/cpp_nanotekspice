@@ -20,9 +20,12 @@ CFLAGS	= -I include -std=c++1z
 CFLAGS	+= -Wall -Wextra -W
 
 
-SRC	= src/main.cpp \
-      src/Component/Component4001.cpp \
-      src/Gates.cpp
+SRC	= src/main.cpp                          \
+      src/Component/DefaultComponent.cpp    \
+      src/Component/Component4001.cpp       \
+      src/Component/ComponentInput.cpp      \
+      src/Component/ComponentOutput.cpp      \
+      src/Gates.cpp                         \
 
 
 OBJ	= $(SRC:.cpp=.o)
