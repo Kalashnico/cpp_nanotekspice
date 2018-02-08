@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< HEAD
 #include "Component/Component4001.hpp"
 #include "Component/ComponentInput.hpp"
 #include "Component/ComponentOutput.hpp"
@@ -29,4 +30,23 @@ int main() {
 //	c1.dump();
 //	out.dump();
 	return 0;
+=======
+#include <histedit.h>
+#include "parsing/Token.hpp"
+#include "parsing/Parser.hpp"
+
+int main() {
+    token::TokenList tokenList;
+    std::string buffer;
+
+    buffer = parsing::Parser::openFile("and.nts");
+
+    tokenList.Tokenizer(buffer);
+
+    std::vector<token::Token> token = tokenList.getList();
+    for (auto i : token) {
+        printf("%s\n", i.value.c_str());
+    }
+    return 0;
+>>>>>>> e833dcbd4c6014a02d0e81e96da17d845aadcdb6
 }

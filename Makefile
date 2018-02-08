@@ -14,12 +14,13 @@ NAME	= nanotekspice
 
 RM	= rm -f
 
-CC	= g++ -std=c++1z
+CC	= g++
 
 CFLAGS	= -I include -std=c++1z
 CFLAGS	+= -Wall -Wextra -W
 
 
+<<<<<<< HEAD
 SRC	= src/main.cpp                          \
       src/Component/DefaultComponent.cpp    \
       src/Component/Component4001.cpp       \
@@ -27,6 +28,11 @@ SRC	= src/main.cpp                          \
       src/Component/ComponentOutput.cpp      \
       src/Gates.cpp                         \
 
+=======
+SRC	=   src/parsing/Token.cpp   \
+        src/parsing/Parser.cpp  \
+        src/main.cpp
+>>>>>>> e833dcbd4c6014a02d0e81e96da17d845aadcdb6
 
 OBJ	= $(SRC:.cpp=.o)
 
