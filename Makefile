@@ -14,13 +14,15 @@ NAME	= nanotekspice
 
 RM	= rm -f
 
-CC	= g++ -std=c++1z
+CC	= g++
 
 CFLAGS	= -I include -std=c++1z
 CFLAGS	+= -Wall -Wextra -W -ferror-limit=200
 
 
-SRC	= src/main.cpp
+SRC	=   src/parsing/Token.cpp   \
+        src/parsing/Parser.cpp  \
+        src/main.cpp
 
 OBJ	= $(SRC:.cpp=.o)
 
