@@ -2,9 +2,9 @@
 // Created by Nicolas Guerin on 02/02/2018.
 //
 
+#include <stdexcept>
 #include "Token.hpp"
 #include "Parser.hpp"
-
 
 namespace token {
 /**

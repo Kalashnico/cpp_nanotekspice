@@ -5,7 +5,7 @@
 ## Login   <victor.cutillas@epitech.eu>
 ##
 ## Started on  Tue Apr 11 01:03:10 2017 Victor Cutillas
-## Last update Fri Jun  9 14:03:39 2017 Victor Cutillas
+## Last update Thu Feb  8 12:02:50 2018 chalie_a
 ##
 
 NAME	= nanotekspice
@@ -20,19 +20,14 @@ CFLAGS	= -I include -std=c++1z
 CFLAGS	+= -Wall -Wextra -W
 
 
-<<<<<<< HEAD
 SRC	= src/main.cpp                          \
-      src/Component/DefaultComponent.cpp    \
-      src/Component/Component4001.cpp       \
-      src/Component/ComponentInput.cpp      \
-      src/Component/ComponentOutput.cpp      \
-      src/Gates.cpp                         \
-
-=======
-SRC	=   src/parsing/Token.cpp   \
+	src/Component/DefaultComponent.cpp    \
+	src/Component/Component4001.cpp       \
+	src/Component/ComponentInput.cpp      \
+	src/Component/ComponentOutput.cpp      \
+	src/Gates.cpp                         \
+	src/parsing/Token.cpp   \
         src/parsing/Parser.cpp  \
-        src/main.cpp
->>>>>>> e833dcbd4c6014a02d0e81e96da17d845aadcdb6
 
 OBJ	= $(SRC:.cpp=.o)
 
