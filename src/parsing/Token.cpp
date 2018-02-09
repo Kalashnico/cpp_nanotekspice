@@ -3,8 +3,8 @@
 //
 
 #include <stdexcept>
-#include "Token.hpp"
-#include "Parser.hpp"
+#include "parsing/Token.hpp"
+#include "parsing/Parser.hpp"
 
 namespace token {
 /**
