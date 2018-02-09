@@ -6,7 +6,7 @@
 #define PARSER_HPP
 
 
-#include "Token.hpp"
+#include "parsing/Token.hpp"
 
 namespace parsing {
     struct Graph {
