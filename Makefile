@@ -10,8 +10,6 @@
 
 NAME	= nanotekspice
 
-## MAN	= man/42sh.1.gz
-
 RM	= rm -f
 
 CC	= g++

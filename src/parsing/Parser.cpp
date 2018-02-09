@@ -65,11 +65,6 @@ namespace parsing {
     }
 
     void Parser::parseChipsets(std::vector<token::Token> &token) {
-        _tmpChild = _graph.child.at(1);
-
-        _tmpChild.child.push_back({token::P_DOT, "", {}});
-        _tmpChild.child.push_back({token::KW_ID, token.at(_cursor).value, {}});
-        _tmpChild.child.push_back({token::P_COLON, token.at(++_cursor).value, {}});
 
     }
 
