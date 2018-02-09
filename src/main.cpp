@@ -6,7 +6,7 @@ int main() {
     token::TokenList tokenList;
     std::string buffer;
 
-    buffer = parsing::Parser::openFile("test");
+    buffer = parsing::Parser::openFile("and.nts");
 
     tokenList.Tokenizer(buffer);
 

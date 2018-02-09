@@ -61,10 +61,7 @@ namespace token {
                     tmpValue += buffer.at(_cursor);
                     _cursor++;
                 }
-                if (isGate(tmpValue).type != token::UNDEFINED) {
-                    this->_list.push_back(isGate(tmpValue));
-                }
-                else if (isDeclaration(tmpValue).type != token::UNDEFINED) {
+                if (isDeclaration(tmpValue).type != token::UNDEFINED) {
                     this->_list.push_back(isDeclaration(tmpValue));
                 }
                 else
@@ -86,27 +83,6 @@ namespace token {
             tmpValue.clear();
         }
         this->_list.push_back({KW_EOF, "eof"});
-    }
-
-    token::Token TokenList::isGate(const std::string &str)
-    {
-
-        //TODO Transformer en std::array
-
-        if (str == "and")
-            return {token::G_AND, "and"};
-        else if (str == "nand")
-            return {token::G_NAND, "nand"};
-        else if (str == "or")
-            return {token::G_OR, "or"};
-        else if (str == "nor")
-            return {token::G_NOR, "nor"};
-        else if (str == "xand")
-            return {token::G_XAND, "xand"};
-        else if (str == "inverter")
-            return {token::G_INVERTER, "inverter"};
-        else
-            return {token::UNDEFINED, ""};
     }
 
 

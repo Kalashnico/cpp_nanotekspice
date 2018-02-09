@@ -23,12 +23,6 @@ namespace token {
         KW_ID,
         KW_INPUT,
         KW_OUTPUT,
-        G_AND,
-        G_OR,
-        G_NAND,
-        G_NOR,
-        G_XAND,
-        G_INVERTER,
         P_DOT,
         P_HASHTAG,
         P_COLON,
@@ -52,7 +46,6 @@ namespace token {
 
         //Member Function
         void    Tokenizer(const std::string &buffer);
-        token::Token    isGate(const std::string &str);
         token::Token    isDeclaration(const std::string &str);
         token::TokenType   getLastToken();
         //Getter & Setter
