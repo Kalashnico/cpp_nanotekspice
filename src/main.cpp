@@ -1,5 +1,4 @@
 #include <iostream>
-#include <histedit.h>
 #include "parsing/Token.hpp"
 #include "parsing/Parser.hpp"
 
