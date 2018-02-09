@@ -1,4 +1,5 @@
 #include <iostream>
+#include <histedit.h>
 #include "parsing/Token.hpp"
 #include "parsing/Parser.hpp"
 
@@ -6,7 +7,7 @@ int main() {
     token::TokenList tokenList;
     std::string buffer;
 
-    buffer = parsing::Parser::openFile("and.nts");
+    buffer = parsing::Parser::openFile("test");
 
     tokenList.Tokenizer(buffer);
 
