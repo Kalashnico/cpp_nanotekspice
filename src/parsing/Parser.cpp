@@ -6,8 +6,10 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include <cstring>
 #include <functional>
+#include <algorithm>
 #include "Component/ComponentInput.hpp"
 #include "Component/ComponentOutput.hpp"
 #include "Component/Component4001.hpp"
@@ -66,10 +68,10 @@ namespace parsing {
 
 	void Parser::dump()
 	{
-		map["a"]->dump();
-		map["b"]->dump();
-		map["s"]->dump();
-		map["gate"]->dump();
+		std::find_if(this->map.begin(), this->map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
+			pair.second->dump();
+			return false;
+		});
 	}
 
 	static std::vector<std::string> str_to_word_tab(std::string str)
@@ -86,12 +88,11 @@ namespace parsing {
 		return vec;
 	}
 
-	static std::map<std::string, std::function<nts::IComponent *(std::string
-	)>> chipsetReferenceGenerator()
+	static std::map<std::string, std::function
+		<nts::IComponent *(std::string)>> chipsetReferenceGenerator()
 	{
-		std::map<std::string, std::function<nts::IComponent *(
-			std::string
-		)>> map;
+		std::map<std::string,
+			std::function<nts::IComponent *(std::string)>> map;
 
 		map["input"] = &nts::CreateInput;
 		map["output"] = &nts::CreateOutput;
@@ -172,6 +173,16 @@ namespace parsing {
 			throw std::invalid_argument(
 				name + ": This chipset doesn't exist.");
 		this->map[name]->compute(pin);
+	}
+
+	void Parser::compute()
+	{
+		std::find_if(this->map.begin(), this->map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
+			auto output = dynamic_cast<nts::ComponentOutput *>(pair.second);
+			if (output)
+				pair.second->compute();
+			return false;
+		});
 	}
 
 	void Parser::setNodeValue(const std::string &name, size_t pin,
