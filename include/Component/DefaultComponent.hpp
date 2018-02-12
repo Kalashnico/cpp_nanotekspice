@@ -5,6 +5,7 @@
 #ifndef CPP_NANOTEKSPICE_DEFAULTCOMPONENT_HPP
 #define CPP_NANOTEKSPICE_DEFAULTCOMPONENT_HPP
 
+#include <cstring>
 #include "IComponent.hpp"
 
 namespace nts {
@@ -27,7 +28,6 @@ namespace nts {
 			virtual void dump() const override;
 
 	};
-
 }
 
 #endif //CPP_NANOTEKSPICE_DEFAULTCOMPONENT_HPP

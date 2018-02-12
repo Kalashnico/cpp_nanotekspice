@@ -41,7 +41,7 @@ void nts::DefaultComponent::setLink(std::size_t pin, nts::IComponent &other,
 pin::Pin *nts::DefaultComponent::getPin(size_t idx)
 {
 	if (idx > pinNumber)
-		return NULL;
+		return nullptr;
 	return &pins[idx - 1];
 }
 
