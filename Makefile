@@ -13,7 +13,7 @@ RM	= rm -f
 CC	= g++
 
 CFLAGS	= -I include -std=c++1z
-CFLAGS	+= -Wall -Wextra -W
+CFLAGS	+= -Wall -Wextra -W -Wshadow
 
 
 SRC	= src/main.cpp                          \

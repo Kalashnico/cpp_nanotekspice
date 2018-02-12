@@ -55,9 +55,10 @@ void NanoPrompt::simulate(std::string string)
         static_cast<void>(string);
 }
 
-void    sigHandler(int sig)
+void    sigHandler(int sg)
 {
-        static_cast<void>(sig);
+        static_cast<void>(sg);
+        std::cout << "sig in" << std::endl;
         sig = false;
 }
 
@@ -65,14 +66,17 @@ void NanoPrompt::loop(std::string string)
 {
         signal(SIGINT, sigHandler);
 
-        std::cout << "pid at t0 : " << getpid() << std::endl;
+        std::cout << "pid = " << getpid() << std::endl;
         static_cast<void>(string);
         while (1) {
                 simulate(string);
+                std::cout << "sig = " << std::boolalpha << sig << std::endl;
                 if (sig == false) {
+                        std::cout << "ici" << std::endl;
                         sig = true;
                         break;
                 }
+                sleep(1);
         }
 }
 
