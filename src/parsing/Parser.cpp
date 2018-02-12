@@ -86,8 +86,7 @@ namespace parsing {
 		return vec;
 	}
 
-	static std::map<std::string, std::function<nts::IComponent *(
-		std::string
+	static std::map<std::string, std::function<nts::IComponent *(std::string
 	)>> chipsetReferenceGenerator()
 	{
 		std::map<std::string, std::function<nts::IComponent *(
@@ -145,11 +144,11 @@ namespace parsing {
 			std::getline(ss, seg_cp, ':');
 			std::getline(ss, seg_pin, ':');
 			if (map.count(seg_cp) == 0)
-				throw std::invalid_argument(seg_cp +
-					": unknown component");
-			tmp = map[seg_cp];
+				throw std::invalid_argument(
+					seg_cp + ": unknown component");
 			if (i == 0) {
 				pin = std::atoi(seg_pin.c_str());
+				tmp = map[seg_cp];
 			} else {
 				tmp->setLink(pin, *map[seg_cp],
 					std::atoi(seg_pin.c_str()));

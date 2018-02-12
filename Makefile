@@ -1,11 +1,8 @@
 ##
-## Makefile for dante in /home/cutill-v/delivery/AI/dante/astar
-##
-## Made by Victor Cutillas
-## Login   <victor.cutillas@epitech.eu>
-##
-## Started on  Tue Apr 11 01:03:10 2017 Victor Cutillas
-## Last update Thu Feb  8 12:02:50 2018 chalie_a
+## EPITECH PROJECT, 2018
+## NanoTekSpice
+## File description:
+## NanoTekSpice
 ##
 
 NAME	= nanotekspice
