@@ -21,11 +21,15 @@ CFLAGS	+= -Wall -Wextra -W
 SRC	= src/main.cpp                          \
 	src/Component/DefaultComponent.cpp    \
 	src/Component/Component4001.cpp       \
+	src/Component/Component4011.cpp       \
+	src/Component/Component4030.cpp       \
+	src/Component/Component4069.cpp       \
+	src/Component/Component4071.cpp       \
+	src/Component/Component4081.cpp       \
 	src/Component/ComponentInput.cpp      \
 	src/Component/ComponentOutput.cpp      \
 	src/Gates.cpp                         \
-	src/parsing/Token.cpp   \
-        src/parsing/Parser.cpp  \
+	src/parsing/Parser.cpp
 
 OBJ	= $(SRC:.cpp=.o)
 

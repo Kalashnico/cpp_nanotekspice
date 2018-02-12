@@ -9,7 +9,6 @@
 #include <vector>
 #include <Component/IComponent.hpp>
 #include <map>
-#include "parsing/Token.hpp"
 
 namespace parsing {
 

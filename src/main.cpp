@@ -1,6 +1,5 @@
 #include <iostream>
 #include <sstream>
-#include "parsing/Token.hpp"
 #include "parsing/Parser.hpp"
 
 
@@ -14,6 +13,8 @@ void	parseInput(char **av, parsing::Parser &parser)
         std::stringstream ss(av[cursor]);
         std::getline(ss, input, '=');
         std::getline(ss, nb, '=');
+        printf("input = %s\n", input.c_str());
+        printf("nb = %s\n", nb.c_str());
         parser.setNodeValue(input, 1, std::atoi(nb.c_str()) == 1 ? nts::Tristate::TRUE : nts::Tristate::FALSE);
         ++cursor;
     }
