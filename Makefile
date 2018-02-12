@@ -26,6 +26,7 @@ SRC	= src/main.cpp                          \
 	src/Component/ComponentInput.cpp      \
 	src/Component/ComponentOutput.cpp      \
 	src/Gates.cpp                         \
+	src/NanoPrompt.cpp                     \
 	src/parsing/Parser.cpp
 
 OBJ	= $(SRC:.cpp=.o)

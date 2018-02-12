@@ -9,7 +9,7 @@
 #include "Pin.hpp"
 
 namespace pin {
-	class Pin;
+	struct Pin;
 }
 
 namespace nts {

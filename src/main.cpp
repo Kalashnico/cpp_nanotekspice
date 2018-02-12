@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <Component/NanoPrompt.hpp>
 #include "parsing/Parser.hpp"
 
 
@@ -16,8 +17,6 @@ void	parseInput(char **av, parsing::Parser &parser)
         parser.setNodeValue(input, 1, std::atoi(nb.c_str()) == 1 ? nts::Tristate::TRUE : nts::Tristate::FALSE);
         ++cursor;
     }
-
-
 };
 
 int main(int ac, char **av)
@@ -30,6 +29,9 @@ int main(int ac, char **av)
         parser.generateGraph();
         parseInput(av, parser);
         parser.compute("s");
+
+        NanoPrompt  nano(parser);
+        nano.run();
     } catch (std::invalid_argument &e) {
         std::cerr << e.what() << std::endl;
         return 84;
