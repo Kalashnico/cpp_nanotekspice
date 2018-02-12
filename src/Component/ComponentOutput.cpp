@@ -31,7 +31,8 @@ nts::Tristate nts::ComponentOutput::compute(size_t pin)
 		default:
 			std::cout << "U" << std::endl;
 		}
-	}
+	} else
+		throw std::invalid_argument(this->name + ": Not linked");
 	return pins[0].value;
 }
 
