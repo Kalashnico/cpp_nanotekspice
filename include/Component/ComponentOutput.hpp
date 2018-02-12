@@ -13,11 +13,13 @@ namespace nts {
 
 		public:
 			ComponentOutput(std::string name);
+
 			~ComponentOutput();
+
 			Tristate compute(size_t pin = 1) override;
 	};
 
+	ComponentOutput *CreateOutput(const std::string &name);
 }
-
 
 #endif //CPP_NANOTEKSPICE_COMPONENTOUTPUT_HPP

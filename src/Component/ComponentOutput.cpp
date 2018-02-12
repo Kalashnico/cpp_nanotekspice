@@ -34,3 +34,8 @@ nts::Tristate nts::ComponentOutput::compute(size_t pin)
 	}
 	return pins[0].value;
 }
+
+nts::ComponentOutput *nts::CreateOutput(const std::string &name)
+{
+	return new nts::ComponentOutput(name);
+}

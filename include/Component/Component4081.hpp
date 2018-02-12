@@ -9,15 +9,17 @@
 
 namespace nts {
 
-    class Component4081 : public DefaultComponent {
+	class Component4081 : public DefaultComponent {
 
-    public:
-        Component4081(std::string name);
-        ~Component4081() override;
+		public:
+			Component4081(std::string name);
 
-        Tristate compute(size_t pin) override;
-    };
+			~Component4081() override;
+
+			Tristate compute(size_t pin) override;
+	};
+	Component4081 *Create4081(const std::string &name);
+
 }
-
 
 #endif //COMPONENT4081_HPP

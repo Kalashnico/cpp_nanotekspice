@@ -20,3 +20,8 @@ nts::Tristate nts::ComponentInput::compute(size_t pin)
 	(void)pin;
 	return pins[0].value;
 }
+
+nts::ComponentInput *nts::CreateInput(const std::string &name)
+{
+	return new nts::ComponentInput(name, nts::Tristate::UNDEFINED);
+}

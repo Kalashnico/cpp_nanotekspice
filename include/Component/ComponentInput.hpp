@@ -16,6 +16,7 @@ namespace nts {
 			~ComponentInput();
 			Tristate compute(size_t pin = 1) override;
 	};
+	ComponentInput *CreateInput(const std::string &name);
 
 }
 

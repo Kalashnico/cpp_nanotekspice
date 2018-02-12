@@ -47,3 +47,8 @@ nts::Tristate nts::Component4030::compute(size_t pin)
         pins[pin].value = Tristate::UNDEFINED;
     return pins[pin].value;
 }
+
+nts::Component4030 *nts::Create4030(const std::string &name)
+{
+	return new nts::Component4030(name);
+}

@@ -15,8 +15,6 @@ nts::Tristate and_gate(nts::Tristate a, nts::Tristate b)
 
 nts::Tristate or_gate(nts::Tristate a, nts::Tristate b)
 {
-	if (a == nts::Tristate::UNDEFINED || b == nts::Tristate::UNDEFINED)
-		return nts::Tristate::UNDEFINED;
 	return (a == nts::Tristate::TRUE || b == nts::Tristate::TRUE) ?
 		nts::Tristate::TRUE : nts::Tristate::FALSE;
 }
