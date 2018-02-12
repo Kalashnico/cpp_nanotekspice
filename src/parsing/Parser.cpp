@@ -7,36 +7,35 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
-#include <Component/ComponentInput.hpp>
-#include <Component/ComponentOutput.hpp>
-#include <Component/Component4001.hpp>
-#include <Component/Component4011.hpp>
-#include <Component/Component4030.hpp>
-#include <Component/Component4069.hpp>
-#include <Component/Component4071.hpp>
-#include <Component/Component4081.hpp>
 #include <functional>
+#include "Component/ComponentInput.hpp"
+#include "Component/ComponentOutput.hpp"
+#include "Component/Component4001.hpp"
+#include "Component/Component4011.hpp"
+#include "Component/Component4030.hpp"
+#include "Component/Component4069.hpp"
+#include "Component/Component4071.hpp"
+#include "Component/Component4081.hpp"
 #include "parsing/Parser.hpp"
 
 namespace parsing {
-    /**
-     * Constructor & Destructor
-     */
+	/**
+	 * Constructor & Destructor
+	 */
 
-        Parser::Parser(const std::string &fileName)
-        {
-            std::ifstream file(fileName);
-            std::stringstream buffer;
+	Parser::Parser(const std::string &fileName)
+	{
+		std::ifstream file(fileName);
+		std::stringstream buffer;
 
-            if (file.good()) {
-                buffer << file.rdbuf();
-            }
-            else
-                throw std::invalid_argument("Error: " + fileName
-			+ ": File doesn't exist");
-            file.close();
-            this->fileContent = buffer.str();
-        }
+		if (file.good()) {
+			buffer << file.rdbuf();
+		} else
+			throw std::invalid_argument(
+				"Error: " + fileName + ": File doesn't exist");
+		file.close();
+		this->fileContent = buffer.str();
+	}
 
 	Parser::~Parser() = default;
 
@@ -48,7 +47,8 @@ namespace parsing {
 
 		while (std::getline(ss, tmp, '\n')) {
 			if (tmp[0] != '#' && !tmp.empty()) {
-				if (std::strcmp(tmp.c_str(), ".chipsets:") == 0) {
+				if (std::strcmp(tmp.c_str(), ".chipsets:") ==
+					0) {
 					lineType = CHIPSET;
 					continue;
 				}
@@ -57,7 +57,8 @@ namespace parsing {
 					continue;
 				}
 				if (lineType == INVALID)
-					throw new std::invalid_argument("Invalid File");
+					throw std::invalid_argument(
+						"Line out of Chipset/Links scope");
 				this->lines.emplace_back(tmp, lineType);
 			}
 		}
@@ -85,9 +86,13 @@ namespace parsing {
 		return vec;
 	}
 
-	static std::map<std::string, std::function<nts::IComponent *(std::string)>> chipsetReferenceGenerator()
+	static std::map<std::string, std::function<nts::IComponent *(
+		std::string
+	)>> chipsetReferenceGenerator()
 	{
-		std::map<std::string, std::function<nts::IComponent *(std::string)>> map;
+		std::map<std::string, std::function<nts::IComponent *(
+			std::string
+		)>> map;
 
 		map["input"] = &nts::CreateInput;
 		map["output"] = &nts::CreateOutput;
@@ -100,31 +105,36 @@ namespace parsing {
 		return map;
 	}
 
-
-	static void addMapChipset(std::map<std::string, nts::IComponent *> &map
-		, const std::string &line)
+	static void addMapChipset(std::map<std::string, nts::IComponent *> &map,
+		const std::string &line
+	)
 	{
 		static auto chipsetRefs = chipsetReferenceGenerator();
 		auto words = str_to_word_tab(line);
 		if (words.size() != 2)
-			throw std::invalid_argument("Error: \"" + line + "\": Bad Line Format");
+			throw std::invalid_argument(
+				"Error: \"" + line + "\": Bad Line Format");
 
 		nts::IComponent *component = nullptr;
 
 		if (chipsetRefs.count(words[0]) == 0)
-			throw std::invalid_argument("Error: " + words[0] + ": Unknown chipset");
+			throw std::invalid_argument(
+				"Error: " + words[0] + ": Unknown chipset");
 		component = chipsetRefs[words[0]](words[1]);
 		if (map.count(words[1]) > 0)
 			throw std::invalid_argument("Key already contained");
 		map[words[1]] = component;
 	}
 
-	static void linkMapChipset(std::map<std::string, nts::IComponent *>
-		&map, const std::string &line)
+	static void linkMapChipset(
+		std::map<std::string, nts::IComponent *> &map,
+		const std::string &line
+	)
 	{
 		auto words = str_to_word_tab(line);
 		if (words.size() != 2)
-			throw std::invalid_argument("Error: " + line + ": Bad Line Format");
+			throw std::invalid_argument(
+				"Error: " + line + ": Bad Line Format");
 
 		nts::IComponent *tmp;
 		int pin;
@@ -134,12 +144,15 @@ namespace parsing {
 			std::stringstream ss(words[i]);
 			std::getline(ss, seg_cp, ':');
 			std::getline(ss, seg_pin, ':');
+			if (map.count(seg_cp) == 0)
+				throw std::invalid_argument(seg_cp +
+					": unknown component");
+			tmp = map[seg_cp];
 			if (i == 0) {
-				tmp = map[seg_cp];
 				pin = std::atoi(seg_pin.c_str());
 			} else {
 				tmp->setLink(pin, *map[seg_cp],
-				std::atoi(seg_pin.c_str()));
+					std::atoi(seg_pin.c_str()));
 			}
 		}
 	}
@@ -157,14 +170,22 @@ namespace parsing {
 	void Parser::compute(const std::string &name, int pin)
 	{
 		if (this->map.count(name) == 0)
-			throw std::invalid_argument(name + ": This chipset doesn't exist.");
+			throw std::invalid_argument(
+				name + ": This chipset doesn't exist.");
 		this->map[name]->compute(pin);
 	}
 
-	void Parser::setNodeValue(const std::string &name, size_t pin, nts::Tristate value)
+	void Parser::setNodeValue(const std::string &name, size_t pin,
+		nts::Tristate value
+	)
 	{
 		if (this->map.count(name) == 0)
-			throw std::invalid_argument(name + ": This chipset doesn't exist.");
-		this->map[name]->getPin(pin)->value = value;
+			throw std::invalid_argument(
+				name + ": This chipset doesn't exist.");
+		auto pin_cp = this->map[name]->getPin(pin);
+		if (!pin_cp)
+			throw std::invalid_argument(
+				"Pin requested out of range");
+		pin_cp->value = value;
 	}
 }

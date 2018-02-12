@@ -14,23 +14,6 @@
     <list default="true" id="56b5348e-d5d9-4980-a9b7-610cc0c9e74f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/and.nts" afterPath="$PROJECT_DIR$/and.nts" />
-      <change beforePath="$PROJECT_DIR$/include/Component/Component4001.hpp" afterPath="$PROJECT_DIR$/include/Component/Component4001.hpp" />
-      <change beforePath="$PROJECT_DIR$/include/Component/Component4011.hpp" afterPath="$PROJECT_DIR$/include/Component/Component4011.hpp" />
-      <change beforePath="$PROJECT_DIR$/include/Component/Component4030.hpp" afterPath="$PROJECT_DIR$/include/Component/Component4030.hpp" />
-      <change beforePath="$PROJECT_DIR$/include/Component/Component4069.hpp" afterPath="$PROJECT_DIR$/include/Component/Component4069.hpp" />
-      <change beforePath="$PROJECT_DIR$/include/Component/Component4071.hpp" afterPath="$PROJECT_DIR$/include/Component/Component4071.hpp" />
-      <change beforePath="$PROJECT_DIR$/include/Component/Component4081.hpp" afterPath="$PROJECT_DIR$/include/Component/Component4081.hpp" />
-      <change beforePath="$PROJECT_DIR$/include/Component/ComponentInput.hpp" afterPath="$PROJECT_DIR$/include/Component/ComponentInput.hpp" />
-      <change beforePath="$PROJECT_DIR$/include/Component/ComponentOutput.hpp" afterPath="$PROJECT_DIR$/include/Component/ComponentOutput.hpp" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Component4001.cpp" afterPath="$PROJECT_DIR$/src/Component/Component4001.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Component4011.cpp" afterPath="$PROJECT_DIR$/src/Component/Component4011.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Component4030.cpp" afterPath="$PROJECT_DIR$/src/Component/Component4030.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Component4069.cpp" afterPath="$PROJECT_DIR$/src/Component/Component4069.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Component4071.cpp" afterPath="$PROJECT_DIR$/src/Component/Component4071.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Component/Component4081.cpp" afterPath="$PROJECT_DIR$/src/Component/Component4081.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Component/ComponentInput.cpp" afterPath="$PROJECT_DIR$/src/Component/ComponentInput.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Component/ComponentOutput.cpp" afterPath="$PROJECT_DIR$/src/Component/ComponentOutput.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Gates.cpp" afterPath="$PROJECT_DIR$/src/Gates.cpp" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
       <change beforePath="$PROJECT_DIR$/src/parsing/Parser.cpp" afterPath="$PROJECT_DIR$/src/parsing/Parser.cpp" />
     </list>
@@ -47,25 +30,63 @@
     <favorites_list name="cpp_nanotekspice" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Parser.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/parsing/Parser.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-326">
-              <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-              <folding>
-                <element signature="e#51#69#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Parser.cpp" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/parsing/Parser.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DefaultComponent.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Component/DefaultComponent.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="40">
+                  <caret line="32" column="46" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="46" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="84">
+                  <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="and.nts" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/and.nts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="63">
+                  <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>NULL</find>
       <find>cout</find>
+      <find>getPin</find>
+      <find>new std::</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -86,8 +107,6 @@
         <option value="$PROJECT_DIR$/include/parsing/Parser.hpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/Gates.cpp" />
-        <option value="$PROJECT_DIR$/and.nts" />
-        <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/include/Component/Component4001.hpp" />
         <option value="$PROJECT_DIR$/src/Component/Component4001.cpp" />
         <option value="$PROJECT_DIR$/include/Component/Component4011.hpp" />
@@ -103,8 +122,10 @@
         <option value="$PROJECT_DIR$/src/Component/Component4071.cpp" />
         <option value="$PROJECT_DIR$/src/Component/ComponentInput.cpp" />
         <option value="$PROJECT_DIR$/src/Component/ComponentOutput.cpp" />
-        <option value="$PROJECT_DIR$/src/parsing/Parser.cpp" />
         <option value="$PROJECT_DIR$/src/Component/Component4081.cpp" />
+        <option value="$PROJECT_DIR$/src/main.cpp" />
+        <option value="$PROJECT_DIR$/and.nts" />
+        <option value="$PROJECT_DIR$/src/parsing/Parser.cpp" />
       </list>
     </option>
   </component>
@@ -140,23 +161,6 @@
             <path>
               <item name="cpp_nanotekspice" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="cpp_nanotekspice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cpp_nanotekspice" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="cpp_nanotekspice" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cpp_nanotekspice" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="cpp_nanotekspice" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="Component" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cpp_nanotekspice" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="cpp_nanotekspice" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="parsing" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cpp_nanotekspice" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
@@ -241,7 +245,7 @@
       <workItem from="1517498100956" duration="567000" />
       <workItem from="1518169304783" duration="665000" />
       <workItem from="1518186811039" duration="10720000" />
-      <workItem from="1518425246841" duration="2926000" />
+      <workItem from="1518425246841" duration="3870000" />
     </task>
     <task id="LOCAL-00001" summary="Yolo">
       <created>1518188989251</created>
@@ -264,22 +268,30 @@
       <option name="project" value="LOCAL" />
       <updated>1518425305658</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Map instead of if/elseif for parsing chipset type">
+      <created>1518428570329</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1518428570329</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19642000" />
+    <option name="totallyTimeSpent" value="20586000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36188436" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36188436" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -290,7 +302,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -303,7 +314,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Yolo" />
     <MESSAGE value="Fix NGN pbs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix NGN pbs" />
+    <MESSAGE value="Map instead of if/elseif for parsing chipset type" />
+    <option name="LAST_COMMIT_MESSAGE" value="Map instead of if/elseif for parsing chipset type" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -316,6 +328,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -338,6 +351,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -352,6 +366,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -377,6 +392,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -406,6 +422,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -450,22 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/and.nts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Component/DefaultComponent.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Gates.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -486,14 +487,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="15" column="55" lean-forward="false" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -626,13 +619,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Component/DefaultComponent.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="32" column="46" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/and.nts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/parsing/Parser.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-326">
-          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-          <folding>
-            <element signature="e#51#69#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

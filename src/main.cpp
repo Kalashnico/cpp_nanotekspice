@@ -14,7 +14,7 @@ int main(int ac, char **av)
         parser.parseFile();
         parser.generateGraph();
         parser.setNodeValue("a", 1, nts::Tristate::TRUE);
-        parser.setNodeValue("b", 1, nts::Tristate::FALSE);
+        parser.setNodeValue("b", 112, nts::Tristate::FALSE);
         parser.compute("s");
     } catch (std::invalid_argument &e) {
         std::cerr << e.what() << std::endl;
