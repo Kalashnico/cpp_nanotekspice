@@ -12,9 +12,9 @@ namespace nts {
 
 	class DefaultComponent : public IComponent {
 		protected:
-			pin::Pin *pins;
-			const size_t pinNumber;
-			const std::string name;
+			pin::Pin *_pins;
+			const size_t _pinNumber;
+			const std::string _name;
 
 		public:
 			DefaultComponent(size_t pinNumber, std::string name);

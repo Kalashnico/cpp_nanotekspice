@@ -7,25 +7,25 @@
 
 nts::Component4071::Component4071(std::string name) : DefaultComponent(14, name)
 {
-	this->pins[0].type = pin::INPUT;
-	this->pins[1].type = pin::INPUT;
-	this->pins[2].type = pin::OUTPUT;
+	this->_pins[0].type = pin::INPUT;
+	this->_pins[1].type = pin::INPUT;
+	this->_pins[2].type = pin::OUTPUT;
 
-	this->pins[3].type = pin::OUTPUT;
-	this->pins[4].type = pin::INPUT;
-	this->pins[5].type = pin::INPUT;
+	this->_pins[3].type = pin::OUTPUT;
+	this->_pins[4].type = pin::INPUT;
+	this->_pins[5].type = pin::INPUT;
 
-	this->pins[6].type = pin::UNUSED;
+	this->_pins[6].type = pin::UNUSED;
 
-	this->pins[7].type = pin::INPUT;
-	this->pins[8].type = pin::INPUT;
-	this->pins[9].type = pin::OUTPUT;
+	this->_pins[7].type = pin::INPUT;
+	this->_pins[8].type = pin::INPUT;
+	this->_pins[9].type = pin::OUTPUT;
 
-	this->pins[10].type = pin::OUTPUT;
-	this->pins[11].type = pin::INPUT;
-	this->pins[12].type = pin::INPUT;
+	this->_pins[10].type = pin::OUTPUT;
+	this->_pins[11].type = pin::INPUT;
+	this->_pins[12].type = pin::INPUT;
 
-	this->pins[13].type = pin::UNUSED;
+	this->_pins[13].type = pin::UNUSED;
 }
 
 nts::Component4071::~Component4071()
@@ -35,15 +35,15 @@ nts::Component4071::~Component4071()
 nts::Tristate nts::Component4071::compute(size_t pin)
 {
 	pin -= 1;
-	if (pins[pin].type == pin::OUTPUT) {
-		pins[pin].value = or_gate(this->compute(pin),
+	if (_pins[pin].type == pin::OUTPUT) {
+		_pins[pin].value = or_gate(this->compute(pin),
 			this->compute(pin - 1));
-	} else if (pins[pin].type == pin::INPUT) {
-		pins[pin].value = pins[pin].otherPin->owner->compute(
-			pins[pin].otherPin->pos);
+	} else if (_pins[pin].type == pin::INPUT) {
+		_pins[pin].value = _pins[pin].otherPin->owner->compute(
+			_pins[pin].otherPin->pos);
 	} else
-		pins[pin].value = Tristate::UNDEFINED;
-	return pins[pin].value;
+		_pins[pin].value = Tristate::UNDEFINED;
+	return _pins[pin].value;
 }
 
 nts::Component4071 *nts::Create4071(const std::string &name)

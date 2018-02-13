@@ -20,9 +20,9 @@ namespace parsing {
 
     class Parser {
 	    private:
-		    std::string fileContent;
-		    std::vector<std::pair<std::string, LineType>> lines;
-		    std::map<std::string, nts::IComponent *> map;
+		    std::string _fileContent;
+		    std::vector<std::pair<std::string, LineType>> _lines;
+		    std::map<std::string, nts::IComponent *> _map;
 
 	    public:
 		    //Constructor & Destructor

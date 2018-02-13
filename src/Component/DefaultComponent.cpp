@@ -5,44 +5,44 @@
 #include "Component/DefaultComponent.hpp"
 
 nts::DefaultComponent::DefaultComponent(size_t pinNumber, std::string name)
-	: pinNumber(pinNumber), name(name)
+	: _pinNumber(pinNumber), _name(name)
 {
-	pins = new pin::Pin[pinNumber];
+	_pins = new pin::Pin[pinNumber];
 
-	for (unsigned int i = 0; i < this->pinNumber; i++) {
-		this->pins[i].value = Tristate::UNDEFINED;
-		this->pins[i].owner = this;
-		this->pins[i].pos = i + 1;
+	for (unsigned int i = 0; i < this->_pinNumber; i++) {
+		this->_pins[i].value = Tristate::UNDEFINED;
+		this->_pins[i].owner = this;
+		this->_pins[i].pos = i + 1;
 	}
 }
 
 nts::DefaultComponent::~DefaultComponent()
 {
-	delete pins;
+	delete _pins;
 }
 
 void nts::DefaultComponent::setLink(std::size_t pin, nts::IComponent &other,
 	std::size_t otherPin)
 {
-	if (pin > pinNumber)
+	if (pin > _pinNumber)
 		return;
-	if (pins[pin - 1].type == pin::UNUSED ||
+	if (_pins[pin - 1].type == pin::UNUSED ||
 		other.getPin(otherPin)->type == pin::UNUSED)
 		return;
 
-	if (pins[pin - 1].type != other.getPin(otherPin)->type) {
-		pins[pin - 1].isLinked = true;
+	if (_pins[pin - 1].type != other.getPin(otherPin)->type) {
+		_pins[pin - 1].isLinked = true;
 		other.getPin(otherPin)->isLinked = true;
-		pins[pin - 1].otherPin = other.getPin(otherPin);
-		other.getPin(otherPin)->otherPin = &pins[pin - 1];
+		_pins[pin - 1].otherPin = other.getPin(otherPin);
+		other.getPin(otherPin)->otherPin = &_pins[pin - 1];
 	}
 }
 
 pin::Pin *nts::DefaultComponent::getPin(size_t idx)
 {
-	if (idx > pinNumber)
+	if (idx > _pinNumber)
 		return nullptr;
-	return &pins[idx - 1];
+	return &_pins[idx - 1];
 }
 
 static std::string TristateToString(nts::Tristate value)
@@ -83,14 +83,14 @@ static std::string PinTypeToString(pin::Type value)
 
 void nts::DefaultComponent::dump() const
 {
-	std::cout << "Node " << this->name << ":" << std::endl;
-	for (size_t i = 1; i <= pinNumber; i++) {
+	std::cout << "Node " << this->_name << ":" << std::endl;
+	for (size_t i = 1; i <= _pinNumber; i++) {
 		std::cout << "\tPin #" << i << " -> ";
 		std::cout << "Value: " <<
-			TristateToString(pins[i - 1].value) << ", ";
+			TristateToString(_pins[i - 1].value) << ", ";
 		std::cout << "Linked: " << std::boolalpha <<
-			pins[i - 1].isLinked << ", ";
-		std::cout << "Type: " << PinTypeToString(pins[i - 1].type)
+			_pins[i - 1].isLinked << ", ";
+		std::cout << "Type: " << PinTypeToString(_pins[i - 1].type)
 			<< std::endl;
 	}
 }

@@ -7,7 +7,7 @@
 nts::ComponentOutput::ComponentOutput(std::string name)
 	: DefaultComponent(1, name)
 {
-	pins[0].type = pin::INPUT;
+	_pins[0].type = pin::INPUT;
 }
 
 nts::ComponentOutput::~ComponentOutput()
@@ -17,11 +17,11 @@ nts::ComponentOutput::~ComponentOutput()
 nts::Tristate nts::ComponentOutput::compute(size_t pin)
 {
 	(void)pin;
-	if (pins[0].otherPin) {
-		pins[0].value = pins[0].otherPin->owner->compute(
-			pins[0].otherPin->pos);
-		std::cout << this->name << "=";
-		switch (pins[0].value) {
+	if (_pins[0].otherPin) {
+		_pins[0].value = _pins[0].otherPin->owner->compute(
+			_pins[0].otherPin->pos);
+		std::cout << this->_name << "=";
+		switch (_pins[0].value) {
 		case nts::Tristate::TRUE:
 			std::cout << "1" << std::endl;
 			break;
@@ -32,8 +32,8 @@ nts::Tristate nts::ComponentOutput::compute(size_t pin)
 			std::cout << "U" << std::endl;
 		}
 	} else
-		throw std::invalid_argument(this->name + ": Not linked");
-	return pins[0].value;
+		throw std::invalid_argument(this->_name + ": Not linked");
+	return _pins[0].value;
 }
 
 nts::ComponentOutput *nts::CreateOutput(const std::string &name)

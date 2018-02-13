@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <signal.h>
 #include <Component/DefaultComponent.hpp>
+#include <sstream>
 #include "Component/NanoPrompt.hpp"
 
 static volatile bool  sig = true;
@@ -41,24 +42,41 @@ void NanoPrompt::run()
 
 void NanoPrompt::display(std::string string)
 {
+        //TODO faire un display en ASCII
+
         static_cast<void>(string);
         _parser.compute("s");
 }
 
 void NanoPrompt::assign(std::string string)
 {
-        static_cast<void>(string);
+        std::string input;
+        std::string nb;
+        std::stringstream ss(string);
+
+        std::getline(ss, input, '=');
+        std::getline(ss, nb, '=');
+        if (atoi(nb.c_str()) > 1) {
+                throw std::invalid_argument("Value requested is out of range.");
+        }
+        _parser.setNodeValue(input, 1,
+                            std::atoi(nb.c_str()) == 1 ? nts::Tristate::TRUE :
+                            nts::Tristate::FALSE);
 }
 
 void NanoPrompt::simulate(std::string string)
 {
+        //TODO Enlever le display dans le compute!!
+
         static_cast<void>(string);
+
+        _parser.compute();
 }
+
 
 void    sigHandler(int sg)
 {
         static_cast<void>(sg);
-        std::cout << "sig in" << std::endl;
         sig = false;
 }
 
@@ -66,17 +84,13 @@ void NanoPrompt::loop(std::string string)
 {
         signal(SIGINT, sigHandler);
 
-        std::cout << "pid = " << getpid() << std::endl;
         static_cast<void>(string);
         while (1) {
                 simulate(string);
-                std::cout << "sig = " << std::boolalpha << sig << std::endl;
                 if (sig == false) {
-                        std::cout << "ici" << std::endl;
                         sig = true;
                         break;
                 }
-                sleep(1);
         }
 }
 

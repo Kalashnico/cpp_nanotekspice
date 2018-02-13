@@ -36,14 +36,14 @@ namespace parsing {
 			throw std::invalid_argument(
 				"Error: " + fileName + ": File doesn't exist");
 		file.close();
-		this->fileContent = buffer.str();
+		this->_fileContent = buffer.str();
 	}
 
 	Parser::~Parser() = default;
 
 	void Parser::parseFile()
 	{
-		std::stringstream ss(this->fileContent);
+		std::stringstream ss(this->_fileContent);
 		std::string tmp;
 		LineType lineType = INVALID;
 
@@ -61,14 +61,14 @@ namespace parsing {
 				if (lineType == INVALID)
 					throw std::invalid_argument(
 						"Line out of Chipset/Links scope");
-				this->lines.emplace_back(tmp, lineType);
+				this->_lines.emplace_back(tmp, lineType);
 			}
 		}
 	}
 
 	void Parser::dump()
 	{
-		std::find_if(this->map.begin(), this->map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
+		std::find_if(this->_map.begin(), this->_map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
 			pair.second->dump();
 			return false;
 		});
@@ -159,25 +159,25 @@ namespace parsing {
 
 	void Parser::generateGraph()
 	{
-		for (const auto &line : this->lines) {
+		for (const auto &line : this->_lines) {
 			if (line.second == CHIPSET)
-				addMapChipset(this->map, line.first);
+				addMapChipset(this->_map, line.first);
 			else
-				linkMapChipset(this->map, line.first);
+				linkMapChipset(this->_map, line.first);
 		}
 	}
 
 	void Parser::compute(const std::string &name, int pin)
 	{
-		if (this->map.count(name) == 0)
+		if (this->_map.count(name) == 0)
 			throw std::invalid_argument(
 				name + ": This chipset doesn't exist.");
-		this->map[name]->compute(pin);
+		this->_map[name]->compute(pin);
 	}
 
 	void Parser::compute()
 	{
-		std::find_if(this->map.begin(), this->map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
+		std::find_if(this->_map.begin(), this->_map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
 			auto output = dynamic_cast<nts::ComponentOutput *>(pair.second);
 			if (output)
 				pair.second->compute();
@@ -189,10 +189,10 @@ namespace parsing {
 		nts::Tristate value
 	)
 	{
-		if (this->map.count(name) == 0)
+		if (this->_map.count(name) == 0)
 			throw std::invalid_argument(
 				name + ": This chipset doesn't exist.");
-		auto pin_cp = this->map[name]->getPin(pin);
+		auto pin_cp = this->_map[name]->getPin(pin);
 		if (!pin_cp)
 			throw std::invalid_argument(
 				"Pin requested out of range");
