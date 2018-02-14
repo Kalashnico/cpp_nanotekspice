@@ -22,20 +22,20 @@ void parseInput(char **av, parsing::Parser &parser)
 
 int main(int ac, char **av)
 {
-    if (ac == 1)
-        return 84;
-    try {
-        parsing::Parser parser(av[1]);
-        parser.parseFile();
-        parser.generateGraph();
-        parseInput(av, parser);
-        parser.compute("s");
-
-        NanoPrompt  nano(parser);
-        nano.run();
-    } catch (std::invalid_argument &e) {
-        std::cerr << e.what() << std::endl;
-        return 84;
-    }
-    return 0;
+	if (ac == 1)
+		return 84;
+	try {
+		parsing::Parser parser(av[1]);
+		parser.parseFile();
+		parser.generateGraph();
+		parseInput(av, parser);
+		parser.compute();
+	    	parser.displayOutputs();
+		NanoPrompt nano(parser);
+		nano.run();
+	} catch (std::invalid_argument &e) {
+		std::cerr << e.what() << std::endl;
+		return 84;
+	}
+	return 0;
 }

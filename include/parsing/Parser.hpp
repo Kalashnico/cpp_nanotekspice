@@ -36,6 +36,7 @@ namespace parsing {
 		    void compute(const std::string &name, int pin = 1);
 		    void compute();
 		    void setNodeValue(const std::string &name, size_t pin, nts::Tristate value);
+		    void displayOutputs();
     };
 }
 

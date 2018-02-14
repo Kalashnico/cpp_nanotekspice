@@ -17,6 +17,8 @@ namespace nts {
 			~ComponentOutput();
 
 			Tristate compute(size_t pin = 1) override;
+
+			void Display();
 	};
 
 	ComponentOutput *CreateOutput(const std::string &name);

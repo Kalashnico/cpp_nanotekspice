@@ -198,4 +198,14 @@ namespace parsing {
 				"Pin requested out of range");
 		pin_cp->value = value;
 	}
+
+	void Parser::displayOutputs()
+	{
+		std::find_if(this->_map.begin(), this->_map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
+			auto output = dynamic_cast<nts::ComponentOutput *>(pair.second);
+			if (output)
+				output->Display();
+			return false;
+		});
+	}
 }

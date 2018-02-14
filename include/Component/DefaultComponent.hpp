@@ -26,7 +26,6 @@ namespace nts {
 
 			virtual Tristate compute(size_t pin = 1) override = 0;
 			virtual void dump() const override;
-
 	};
 }
 

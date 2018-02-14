@@ -42,10 +42,8 @@ void NanoPrompt::run()
 
 void NanoPrompt::display(std::string string)
 {
-        //TODO faire un display en ASCII
-
         static_cast<void>(string);
-        _parser.compute("s");
+        _parser.displayOutputs();
 }
 
 void NanoPrompt::assign(std::string string)
@@ -66,8 +64,6 @@ void NanoPrompt::assign(std::string string)
 
 void NanoPrompt::simulate(std::string string)
 {
-        //TODO Enlever le display dans le compute!!
-
         static_cast<void>(string);
 
         _parser.compute();

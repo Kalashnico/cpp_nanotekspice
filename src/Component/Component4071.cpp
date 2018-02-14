@@ -32,18 +32,29 @@ nts::Component4071::~Component4071()
 {
 }
 
+void nts::Component4071::computeNode(size_t pin)
+{
+ 	if (pin == 3 || pin == 10) {
+		_pins[pin - 1].value = or_gate(this->compute(pin - 1),
+			this->compute(pin - 2));
+	}
+	else {
+		_pins[pin - 1].value = or_gate(this->compute(pin + 1),
+			this->compute(pin + 2));
+	}
+}
+
 nts::Tristate nts::Component4071::compute(size_t pin)
 {
-	pin -= 1;
-	if (_pins[pin].type == pin::OUTPUT) {
-		_pins[pin].value = or_gate(this->compute(pin),
-			this->compute(pin - 1));
-	} else if (_pins[pin].type == pin::INPUT) {
-		_pins[pin].value = _pins[pin].otherPin->owner->compute(
-			_pins[pin].otherPin->pos);
+	if (_pins[pin - 1].type == pin::OUTPUT) {
+		if (pin < this->_pinNumber)
+			computeNode(pin);
+	} else if (_pins[pin - 1].type == pin::INPUT) {
+		_pins[pin - 1].value = _pins[pin - 1].otherPin->owner->compute(
+			_pins[pin - 1].otherPin->pos);
 	} else
-		_pins[pin].value = Tristate::UNDEFINED;
-	return _pins[pin].value;
+		_pins[pin - 1].value = Tristate::UNDEFINED;
+	return _pins[pin - 1].value;
 }
 
 nts::Component4071 *nts::Create4071(const std::string &name)

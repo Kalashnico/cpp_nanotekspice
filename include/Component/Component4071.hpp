@@ -17,6 +17,8 @@ namespace nts {
 			~Component4071() override;
 
 			Tristate compute(size_t pin) override;
+
+			void computeNode(size_t pin);
 	};
 	Component4071 *Create4071(const std::string &name);
 
