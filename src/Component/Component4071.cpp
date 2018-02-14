@@ -37,8 +37,7 @@ void nts::Component4071::computeNode(size_t pin)
  	if (pin == 3 || pin == 10) {
 		_pins[pin - 1].value = or_gate(this->compute(pin - 1),
 			this->compute(pin - 2));
-	}
-	else {
+	} else {
 		_pins[pin - 1].value = or_gate(this->compute(pin + 1),
 			this->compute(pin + 2));
 	}
