@@ -27,6 +27,7 @@ namespace parsing {
 
 	Parser::Parser(const std::string &fileName)
 	{
+		_fileName = fileName;
 		std::ifstream file(fileName);
 		std::stringstream buffer;
 
@@ -207,5 +208,13 @@ namespace parsing {
 				output->Display();
 			return false;
 		});
+	}
+
+	void Parser::cat()
+	{
+		std::ifstream f(_fileName);
+
+		if(f.is_open())
+			std::cout << f.rdbuf() << std::endl;
 	}
 }

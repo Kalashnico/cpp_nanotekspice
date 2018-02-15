@@ -23,6 +23,7 @@ class NanoPrompt {
 		void	simulate(std::string string);
 		void	loop(std::string string);
 		void	dump(std::string string);
+		void	cat(std::string string);
 };
 
 

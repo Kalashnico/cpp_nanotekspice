@@ -17,13 +17,17 @@ CFLAGS	+= -Wall -Wextra -W -Wshadow
 
 
 SRC	= src/main.cpp                          \
-	src/Component/AComponent.cpp    \
+	src/Component/AComponent.cpp           \
+	src/Component/Component4000.cpp      \
 	src/Component/Component4001.cpp       \
+	src/Component/Component4002.cpp      \
 	src/Component/Component4011.cpp       \
+	src/Component/Component4025.cpp      \
 	src/Component/Component4030.cpp       \
 	src/Component/Component4069.cpp       \
 	src/Component/Component4071.cpp       \
 	src/Component/Component4081.cpp       \
+	src/Component/ComponentClock.cpp      \
 	src/Component/ComponentInput.cpp      \
 	src/Component/ComponentOutput.cpp      \
 	src/Gates.cpp                         \

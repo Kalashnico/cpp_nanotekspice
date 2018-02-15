@@ -17,6 +17,7 @@ NanoPrompt::NanoPrompt(const parsing::Parser &parser) : _parser(parser)
         _cmd["simulate"] = &NanoPrompt::simulate;
         _cmd["loop"] = &NanoPrompt::loop;
         _cmd["dump"] = &NanoPrompt::dump;
+        _cmd["cat_file"] = &NanoPrompt::cat;
 }
 
 NanoPrompt::~NanoPrompt()
@@ -96,4 +97,10 @@ void NanoPrompt::dump(std::string string)
 {
         static_cast<void>(string);
         _parser.dump();
+}
+
+void NanoPrompt::cat(std::string string)
+{
+        static_cast<void>(string);
+        _parser.cat();
 }

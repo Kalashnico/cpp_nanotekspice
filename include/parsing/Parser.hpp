@@ -23,6 +23,7 @@ namespace parsing {
 		    std::string _fileContent;
 		    std::vector<std::pair<std::string, LineType>> _lines;
 		    std::map<std::string, nts::IComponent *> _map;
+		    std::string	_fileName;
 
 	    public:
 		    //Constructor & Destructor
@@ -37,6 +38,7 @@ namespace parsing {
 		    void compute();
 		    void setNodeValue(const std::string &name, size_t pin, nts::Tristate value);
 		    void displayOutputs();
+		    void cat();
     };
 }
 
