@@ -36,6 +36,8 @@ void NanoPrompt::run()
                         (this->*(_cmd["assign"]))(str);
                 else if (_cmd.count(str) == 1)
                         (this->*(_cmd[str]))("");
+		else
+			std::cout << str << ": Unknown command." << std::endl;
                 std::cout << "> ";
         }
 }

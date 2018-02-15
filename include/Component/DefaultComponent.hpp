@@ -6,13 +6,14 @@
 #define CPP_NANOTEKSPICE_DEFAULTCOMPONENT_HPP
 
 #include <cstring>
+#include <memory>
 #include "IComponent.hpp"
 
 namespace nts {
 
 	class DefaultComponent : public IComponent {
 		protected:
-			pin::Pin *_pins;
+			std::unique_ptr<pin::Pin[]> _pins;
 			const size_t _pinNumber;
 			const std::string _name;
 
@@ -28,5 +29,8 @@ namespace nts {
 			virtual void dump() const override;
 	};
 }
+
+std::unique_ptr<nts::IComponent> createComponent(std::string &type,
+						std::string &name);
 
 #endif //CPP_NANOTEKSPICE_DEFAULTCOMPONENT_HPP

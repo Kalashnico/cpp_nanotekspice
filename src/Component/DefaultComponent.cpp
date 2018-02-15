@@ -2,12 +2,22 @@
 // Created by jdecombe on 06/02/18.
 //
 
+#include <functional>
+#include <map>
+#include <Component/ComponentInput.hpp>
+#include <Component/ComponentOutput.hpp>
+#include <Component/Component4001.hpp>
+#include <Component/Component4011.hpp>
+#include <Component/Component4030.hpp>
+#include <Component/Component4069.hpp>
+#include <Component/Component4071.hpp>
+#include <Component/Component4081.hpp>
 #include "Component/DefaultComponent.hpp"
 
 nts::DefaultComponent::DefaultComponent(size_t pinNumber, std::string name)
 	: _pinNumber(pinNumber), _name(name)
 {
-	_pins = new pin::Pin[pinNumber];
+	_pins = std::unique_ptr<pin::Pin[]>(new pin::Pin[pinNumber]);
 
 	for (unsigned int i = 0; i < this->_pinNumber; i++) {
 		this->_pins[i].value = Tristate::UNDEFINED;
@@ -18,7 +28,7 @@ nts::DefaultComponent::DefaultComponent(size_t pinNumber, std::string name)
 
 nts::DefaultComponent::~DefaultComponent()
 {
-	delete _pins;
+	delete _pins.get();
 }
 
 void nts::DefaultComponent::setLink(std::size_t pin, nts::IComponent &other,
@@ -93,4 +103,32 @@ void nts::DefaultComponent::dump() const
 		std::cout << "Type: " << PinTypeToString(_pins[i - 1].type)
 			<< std::endl;
 	}
+}
+
+static std::map<std::string, std::function
+	<nts::IComponent *(std::string)>> chipsetReferenceGenerator()
+{
+	std::map<std::string,
+		std::function<nts::IComponent *(std::string)>> map;
+
+	map["input"] = &nts::CreateInput;
+	map["output"] = &nts::CreateOutput;
+	map["4001"] = &nts::Create4001;
+	map["4011"] = &nts::Create4011;
+	map["4030"] = &nts::Create4030;
+	map["4069"] = &nts::Create4069;
+	map["4071"] = &nts::Create4071;
+	map["4081"] = &nts::Create4081;
+	return map;
+}
+
+
+std::unique_ptr<nts::IComponent> createComponent(std::string &type,
+	std::string &name)
+{
+	static auto map = chipsetReferenceGenerator();
+
+	if (map.count(type) == 0)
+		throw std::invalid_argument(type + ": Unknown Chipset.");
+	return std::unique_ptr<nts::IComponent>(map[type](name));
 }

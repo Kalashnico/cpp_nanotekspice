@@ -33,9 +33,11 @@ int main(int ac, char **av)
 	    	parser.displayOutputs();
 		NanoPrompt nano(parser);
 		nano.run();
-	} catch (std::invalid_argument &e) {
+	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 		return 84;
+	} catch (...) {
+		std::cerr << "Caught unknown exception." << std::endl;
 	}
 	return 0;
 }
