@@ -18,14 +18,14 @@
 #include "Component/Component4069.hpp"
 #include "Component/Component4071.hpp"
 #include "Component/Component4081.hpp"
-#include "parsing/Parser.hpp"
+#include "Circuit/Circuit.hpp"
 
 namespace parsing {
 	/**
 	 * Constructor & Destructor
 	 */
 
-	Parser::Parser(const std::string &fileName)
+	Circuit::Circuit(const std::string &fileName)
 	{
 		_fileName = fileName;
 		std::ifstream file(fileName);
@@ -40,9 +40,9 @@ namespace parsing {
 		this->_fileContent = buffer.str();
 	}
 
-	Parser::~Parser() = default;
+	Circuit::~Circuit() = default;
 
-	void Parser::parseFile()
+	void Circuit::parseFile()
 	{
 		std::stringstream ss(this->_fileContent);
 		std::string tmp;
@@ -67,7 +67,7 @@ namespace parsing {
 		}
 	}
 
-	void Parser::dump()
+	void Circuit::dump()
 	{
 		std::find_if(this->_map.begin(), this->_map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
 			pair.second->dump();
@@ -158,7 +158,7 @@ namespace parsing {
 		}
 	}
 
-	void Parser::generateGraph()
+	void Circuit::generateGraph()
 	{
 		for (const auto &line : this->_lines) {
 			if (line.second == CHIPSET)
@@ -168,7 +168,7 @@ namespace parsing {
 		}
 	}
 
-	void Parser::compute(const std::string &name, int pin)
+	void Circuit::compute(const std::string &name, int pin)
 	{
 		if (this->_map.count(name) == 0)
 			throw std::invalid_argument(
@@ -176,7 +176,7 @@ namespace parsing {
 		this->_map[name]->compute(pin);
 	}
 
-	void Parser::compute()
+	void Circuit::compute()
 	{
 		std::find_if(this->_map.begin(), this->_map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
 			auto output = dynamic_cast<nts::ComponentOutput *>(pair.second);
@@ -186,7 +186,7 @@ namespace parsing {
 		});
 	}
 
-	void Parser::setNodeValue(const std::string &name, size_t pin,
+	void Circuit::setNodeValue(const std::string &name, size_t pin,
 		nts::Tristate value
 	)
 	{
@@ -200,7 +200,7 @@ namespace parsing {
 		pin_cp->value = value;
 	}
 
-	void Parser::displayOutputs()
+	void Circuit::displayOutputs()
 	{
 		std::find_if(this->_map.begin(), this->_map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
 			auto output = dynamic_cast<nts::ComponentOutput *>(pair.second);
@@ -210,7 +210,7 @@ namespace parsing {
 		});
 	}
 
-	void Parser::cat()
+	void Circuit::cat()
 	{
 		std::ifstream f(_fileName);
 

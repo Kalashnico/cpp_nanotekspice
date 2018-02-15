@@ -10,7 +10,7 @@
 
 static volatile bool  sig = true;
 
-NanoPrompt::NanoPrompt(const parsing::Parser &parser) : _parser(parser)
+NanoPrompt::NanoPrompt(const parsing::Circuit &parser) : _parser(parser)
 {
         _cmd["display"] = &NanoPrompt::display;
         _cmd["assign"] = &NanoPrompt::assign;
@@ -37,6 +37,8 @@ void NanoPrompt::run()
                         (this->*(_cmd["assign"]))(str);
                 else if (_cmd.count(str) == 1)
                         (this->*(_cmd[str]))("");
+                else if (std::strcmp("clear", str.c_str()) == 0)
+                        std::cout << "\033[2J\033[1;1H";
 		else
 			std::cout << str << ": Unknown command." << std::endl;
                 std::cout << "> ";

@@ -32,7 +32,7 @@ SRC	= src/main.cpp                          \
 	src/Component/ComponentOutput.cpp      \
 	src/Gates.cpp                         \
 	src/NanoPrompt.cpp                     \
-	src/parsing/Parser.cpp
+	src/Circuit/Circuit.cpp
 
 OBJ	= $(SRC:.cpp=.o)
 

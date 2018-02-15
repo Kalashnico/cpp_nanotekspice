@@ -6,15 +6,15 @@
 #define NANOPROMPT_HPP
 
 #include <map>
-#include <parsing/Parser.hpp>
+#include <Circuit/Circuit.hpp>
 
 class NanoPrompt {
 	private:
 		std::map<std::string, void (NanoPrompt::*)(std::string)> _cmd;
-                parsing::Parser _parser;
+                parsing::Circuit _parser;
 
 	public:
-		NanoPrompt(const parsing::Parser &parser);
+		NanoPrompt(const parsing::Circuit &parser);
 		virtual ~NanoPrompt();
 
 		void 	run();

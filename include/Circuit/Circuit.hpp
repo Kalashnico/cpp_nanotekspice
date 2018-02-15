@@ -18,7 +18,7 @@ namespace parsing {
 		LINKS
 	};
 
-    class Parser {
+    class Circuit {
 	    private:
 		    std::string _fileContent;
 		    std::vector<std::pair<std::string, LineType>> _lines;
@@ -27,8 +27,8 @@ namespace parsing {
 
 	    public:
 		    //Constructor & Destructor
-		    explicit Parser(const std::string &file);
-		    virtual ~Parser();
+		    explicit Circuit(const std::string &file);
+		    virtual ~Circuit();
 
 		    //Member Functions
 		    void parseFile();

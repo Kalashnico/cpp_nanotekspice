@@ -2,9 +2,9 @@
 #include <sstream>
 #include "Component/NanoPrompt.hpp"
 #include "Component/Component4001.hpp"
-#include "parsing/Parser.hpp"
+#include "Circuit/Circuit.hpp"
 
-void parseInput(char **av, parsing::Parser &parser)
+void parseInput(char **av, parsing::Circuit &parser)
 {
 	std::size_t cursor = 2;
 	std::string input;
@@ -26,7 +26,7 @@ int main(int ac, char **av)
 	if (ac == 1)
 		return 84;
 	try {
-		parsing::Parser parser(av[1]);
+		parsing::Circuit parser(av[1]);
 		parser.parseFile();
 		parser.generateGraph();
 		parseInput(av, parser);
