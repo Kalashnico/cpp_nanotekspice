@@ -2,9 +2,9 @@
 // Created by jdecombe on 06/02/18.
 //
 
-#include "Component/DefaultComponent.hpp"
+#include "Component/AComponent.hpp"
 
-nts::DefaultComponent::DefaultComponent(size_t pinNumber, std::string name)
+nts::AComponent::AComponent(size_t pinNumber, std::string name)
 	: _pinNumber(pinNumber), _name(name)
 {
 	_pins = new pin::Pin[pinNumber];
@@ -16,12 +16,12 @@ nts::DefaultComponent::DefaultComponent(size_t pinNumber, std::string name)
 	}
 }
 
-nts::DefaultComponent::~DefaultComponent()
+nts::AComponent::~AComponent()
 {
 	delete _pins;
 }
 
-void nts::DefaultComponent::setLink(std::size_t pin, nts::IComponent &other,
+void nts::AComponent::setLink(std::size_t pin, nts::IComponent &other,
 	std::size_t otherPin)
 {
 	if (pin > _pinNumber)
@@ -38,7 +38,7 @@ void nts::DefaultComponent::setLink(std::size_t pin, nts::IComponent &other,
 	}
 }
 
-pin::Pin *nts::DefaultComponent::getPin(size_t idx)
+pin::Pin *nts::AComponent::getPin(size_t idx)
 {
 	if (idx > _pinNumber)
 		return nullptr;
@@ -81,7 +81,7 @@ static std::string PinTypeToString(pin::Type value)
 	return str;
 }
 
-void nts::DefaultComponent::dump() const
+void nts::AComponent::dump() const
 {
 	std::cout << "Node " << this->_name << ":" << std::endl;
 	for (size_t i = 1; i <= _pinNumber; i++) {

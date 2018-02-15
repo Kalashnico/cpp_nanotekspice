@@ -5,7 +5,7 @@
 #include "Component/ComponentOutput.hpp"
 
 nts::ComponentOutput::ComponentOutput(std::string name)
-	: DefaultComponent(1, name)
+	: AComponent(1, name)
 {
 	_pins[0].type = pin::INPUT;
 }

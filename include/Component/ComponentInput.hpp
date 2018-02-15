@@ -5,11 +5,11 @@
 #ifndef CPP_NANOTEKSPICE_COMPONENTINPUT_HPP
 #define CPP_NANOTEKSPICE_COMPONENTINPUT_HPP
 
-#include "Component/DefaultComponent.hpp"
+#include "Component/AComponent.hpp"
 
 namespace nts {
 
-	class ComponentInput : public DefaultComponent {
+	class ComponentInput : public AComponent {
 
 		public:
 			ComponentInput(std::string name, nts::Tristate value);

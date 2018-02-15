@@ -9,16 +9,15 @@
 #include "IComponent.hpp"
 
 namespace nts {
-
-	class DefaultComponent : public IComponent {
+	class AComponent : public IComponent {
 		protected:
 			pin::Pin *_pins;
 			const size_t _pinNumber;
 			const std::string _name;
 
 		public:
-			DefaultComponent(size_t pinNumber, std::string name);
-			virtual ~DefaultComponent();
+			AComponent(size_t pinNumber, std::string name);
+			virtual ~AComponent();
 
 			void setLink(std::size_t pin, nts::IComponent &other,
 				std::size_t otherPin) override;
