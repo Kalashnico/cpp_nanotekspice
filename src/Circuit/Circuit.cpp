@@ -10,6 +10,8 @@
 #include <cstring>
 #include <functional>
 #include <algorithm>
+#include <Component/ComponentFalse.hpp>
+#include <Component/ComponentTrue.hpp>
 #include "Component/ComponentInput.hpp"
 #include "Component/ComponentOutput.hpp"
 #include "Component/Component4001.hpp"
@@ -103,6 +105,8 @@ namespace parsing {
 		map["4069"] = &nts::Create4069;
 		map["4071"] = &nts::Create4071;
 		map["4081"] = &nts::Create4081;
+		map["false"] = &nts::CreateFalse;
+		map["true"] = &nts::CreateTrue;
 		return map;
 	}
 
@@ -193,7 +197,14 @@ namespace parsing {
 		if (this->_map.count(name) == 0)
 			throw std::invalid_argument(
 				name + ": This chipset doesn't exist.");
-		auto pin_cp = this->_map[name]->getPin(pin);
+		auto chipset_cp = this->_map[name];
+		if (!chipset_cp)
+			throw ;
+
+		if (dynamic_cast<nts::ComponentInput*>(chipset_cp)== nullptr)
+			throw std::invalid_argument(name +
+				": Can't modify this Chipset.");
+		auto pin_cp = chipset_cp->getPin(pin);
 		if (!pin_cp)
 			throw std::invalid_argument(
 				"Pin requested out of range");

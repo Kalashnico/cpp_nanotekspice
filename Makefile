@@ -30,6 +30,8 @@ SRC	= src/main.cpp                          \
 	src/Component/ComponentClock.cpp      \
 	src/Component/ComponentInput.cpp      \
 	src/Component/ComponentOutput.cpp      \
+	src/Component/ComponentTrue.cpp		\
+	src/Component/ComponentFalse.cpp	\
 	src/Gates.cpp                         \
 	src/NanoPrompt.cpp                     \
 	src/Circuit/Circuit.cpp
