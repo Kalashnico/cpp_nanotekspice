@@ -17,7 +17,7 @@ CFLAGS	+= -Wall -Wextra -W -Wshadow
 
 
 SRC	= src/main.cpp                          \
-	src/Component/DefaultComponent.cpp    \
+	src/Component/AComponent.cpp    \
 	src/Component/Component4001.cpp       \
 	src/Component/Component4011.cpp       \
 	src/Component/Component4030.cpp       \

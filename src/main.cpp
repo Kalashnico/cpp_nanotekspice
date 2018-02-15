@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
-#include <Component/NanoPrompt.hpp>
+#include "Component/NanoPrompt.hpp"
+#include "Component/Component4001.hpp"
 #include "parsing/Parser.hpp"
 
 void parseInput(char **av, parsing::Parser &parser)

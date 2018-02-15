@@ -5,11 +5,11 @@
 #ifndef COMPONENTCLOCK_HPP
 #define COMPONENTCLOCK_HPP
 
-#include "DefaultComponent.hpp"
+#include "AComponent.hpp"
 
 namespace nts {
 
-        class ComponentClock : public DefaultComponent {
+        class ComponentClock : public AComponent {
 
                 public:
                         ComponentClock(std::string name, nts::Tristate value);

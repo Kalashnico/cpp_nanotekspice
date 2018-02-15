@@ -5,7 +5,7 @@
 #include "Gates.hpp"
 #include "Component/Component4071.hpp"
 
-nts::Component4071::Component4071(std::string name) : DefaultComponent(14, name)
+nts::Component4071::Component4071(std::string name) : AComponent(14, name)
 {
 	this->_pins[0].type = pin::INPUT;
 	this->_pins[1].type = pin::INPUT;

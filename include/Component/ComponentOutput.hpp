@@ -5,11 +5,11 @@
 #ifndef CPP_NANOTEKSPICE_COMPONENTOUTPUT_HPP
 #define CPP_NANOTEKSPICE_COMPONENTOUTPUT_HPP
 
-#include "Component/DefaultComponent.hpp"
+#include "Component/AComponent.hpp"
 
 namespace nts {
 
-	class ComponentOutput : public DefaultComponent {
+	class ComponentOutput : public AComponent {
 
 		public:
 			ComponentOutput(std::string name);

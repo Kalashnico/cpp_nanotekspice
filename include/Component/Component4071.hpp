@@ -5,11 +5,11 @@
 #ifndef COMPONENT4071_HPP
 #define COMPONENT4071_HPP
 
-#include "DefaultComponent.hpp"
+#include "AComponent.hpp"
 
 namespace nts {
 
-	class Component4071 : public DefaultComponent {
+	class Component4071 : public AComponent {
 
 		public:
 			Component4071(std::string name);

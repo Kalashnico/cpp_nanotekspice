@@ -4,7 +4,7 @@
 
 #include <unistd.h>
 #include <signal.h>
-#include <Component/DefaultComponent.hpp>
+#include <Component/AComponent.hpp>
 #include <sstream>
 #include "Component/NanoPrompt.hpp"
 

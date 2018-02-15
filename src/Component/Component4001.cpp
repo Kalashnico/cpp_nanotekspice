@@ -6,7 +6,7 @@
 #include "Component/Component4001.hpp"
 
 nts::Component4001::Component4001(std::string name)
-	: DefaultComponent(14, name)
+	: AComponent(14, name)
 {
 	this->_pins[0].type = pin::INPUT;
 	this->_pins[1].type = pin::INPUT;

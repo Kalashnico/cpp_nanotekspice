@@ -5,7 +5,7 @@
 #include "Component/ComponentClock.hpp"
 
 nts::ComponentClock::ComponentClock(std::string name, nts::Tristate value)
-        : DefaultComponent(1, name)
+        : AComponent(1, name)
 {
         _pins[0].type = pin::OUTPUT;
         _pins[0].value = value;
