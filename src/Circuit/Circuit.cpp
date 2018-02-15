@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <Component/ComponentFalse.hpp>
 #include <Component/ComponentTrue.hpp>
+#include <Component/ComponentClock.hpp>
 #include "Component/ComponentInput.hpp"
 #include "Component/ComponentOutput.hpp"
 #include "Component/Component4001.hpp"
@@ -99,6 +100,7 @@ namespace parsing {
 
 		map["input"] = &nts::CreateInput;
 		map["output"] = &nts::CreateOutput;
+		map["clock"] = &nts::CreateClock;
 		map["4001"] = &nts::Create4001;
 		map["4011"] = &nts::Create4011;
 		map["4030"] = &nts::Create4030;
