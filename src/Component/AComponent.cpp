@@ -12,6 +12,9 @@
 #include <Component/Component4069.hpp>
 #include <Component/Component4071.hpp>
 #include <Component/Component4081.hpp>
+#include <Component/ComponentClock.hpp>
+#include <Component/ComponentTrue.hpp>
+#include <Component/ComponentFalse.hpp>
 #include "Component/AComponent.hpp"
 
 nts::AComponent::AComponent(size_t pinNumber, std::string name)
@@ -113,6 +116,9 @@ static std::map<std::string, std::function
 
 	map["input"] = &nts::CreateInput;
 	map["output"] = &nts::CreateOutput;
+        map["clock"] = &nts::CreateClock;
+        map["true"] = &nts::CreateTrue;
+        map["false"] = &nts::CreateFalse;
 	map["4001"] = &nts::Create4001;
 	map["4011"] = &nts::Create4011;
 	map["4030"] = &nts::Create4030;
