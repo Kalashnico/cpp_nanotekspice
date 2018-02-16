@@ -39,6 +39,7 @@ namespace parsing {
 		    void setNodeValue(const std::string &name, size_t pin, nts::Tristate value);
 		    void displayOutputs();
 		    void cat();
+		    void setCircuitDirty();
     };
 }
 

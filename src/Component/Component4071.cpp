@@ -45,6 +45,9 @@ void nts::Component4071::computeNode(size_t pin)
 
 nts::Tristate nts::Component4071::compute(size_t pin)
 {
+	if (!_pins[pin - 1].isDirty)
+		return _pins[pin - 1].value;
+	_pins[pin - 1].isDirty = false;
 	if (_pins[pin - 1].type == pin::OUTPUT) {
 		if (pin < this->_pinNumber)
 			computeNode(pin);

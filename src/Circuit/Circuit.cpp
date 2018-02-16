@@ -72,10 +72,9 @@ namespace parsing {
 
 	void Circuit::dump()
 	{
-		std::find_if(this->_map.begin(), this->_map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
-			pair.second->dump();
-			return false;
-		});
+		for (auto elt : _map) {
+			elt.second->dump();
+		}
 	}
 
 	static std::vector<std::string> str_to_word_tab(std::string str)
@@ -184,12 +183,11 @@ namespace parsing {
 
 	void Circuit::compute()
 	{
-		std::find_if(this->_map.begin(), this->_map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
-			auto output = dynamic_cast<nts::ComponentOutput *>(pair.second);
+		for (auto elt : _map) {
+			auto output = dynamic_cast<nts::ComponentOutput *>(elt.second);
 			if (output)
-				pair.second->compute();
-			return false;
-		});
+				elt.second->compute();
+		}
 	}
 
 	void Circuit::setNodeValue(const std::string &name, size_t pin,
@@ -215,12 +213,11 @@ namespace parsing {
 
 	void Circuit::displayOutputs()
 	{
-		std::find_if(this->_map.begin(), this->_map.end(), [&](std::pair<std::string, nts::IComponent *> pair) {
-			auto output = dynamic_cast<nts::ComponentOutput *>(pair.second);
+		for (auto elt : _map) {
+			auto output = dynamic_cast<nts::ComponentOutput *>(elt.second);
 			if (output)
 				output->Display();
-			return false;
-		});
+		}
 	}
 
 	void Circuit::cat()
@@ -229,5 +226,12 @@ namespace parsing {
 
 		if(f.is_open())
 			std::cout << f.rdbuf() << std::endl;
+	}
+
+	void Circuit::setCircuitDirty()
+	{
+		for (auto elt : _map) {
+			elt.second->setPinDirty();
+		}
 	}
 }

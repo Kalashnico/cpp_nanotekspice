@@ -37,6 +37,9 @@ nts::Component4030::~Component4030()
 nts::Tristate nts::Component4030::compute(size_t pin)
 {
     pin -= 1;
+    if (!_pins[pin].isDirty)
+        return _pins[pin].value;
+    _pins[pin].isDirty = false;
     if (_pins[pin].type == pin::OUTPUT) {
         _pins[pin].value = xor_gate(this->compute(pin),
                                     this->compute(pin - 1));

@@ -38,6 +38,9 @@ nts::Component4000::~Component4000()
 nts::Tristate nts::Component4000::compute(size_t pin)
 {
         pin -= 1;
+        if (!_pins[pin].isDirty)
+                return _pins[pin].value;
+	_pins[pin].isDirty = false;
         if (_pins[pin].type == pin::OUTPUT) {
                 if (pin == 8) {
                         _pins[pin].value = inverter_gate(_pins[pin - 1].value);

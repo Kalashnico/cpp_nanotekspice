@@ -34,6 +34,13 @@ nts::AComponent::~AComponent()
 	delete _pins.get();
 }
 
+void nts::AComponent::setPinDirty()
+{
+	for (unsigned int i = 0; i < this->_pinNumber; i++) {
+		this->_pins[i].isDirty = true;
+	}
+}
+
 void nts::AComponent::setLink(std::size_t pin, nts::IComponent &other,
 	std::size_t otherPin)
 {

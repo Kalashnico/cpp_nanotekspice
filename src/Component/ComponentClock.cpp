@@ -18,6 +18,9 @@ nts::ComponentClock::~ComponentClock()
 nts::Tristate nts::ComponentClock::compute(size_t pin)
 {
         (void)pin;
+        if (!_pins[0].isDirty)
+                return _pins[0].value;
+        _pins[0].isDirty = false;
         if (_pins[0].value == nts::Tristate::FALSE)
                 _pins[0].value = nts::Tristate::TRUE;
         else

@@ -33,10 +33,11 @@ namespace pin {
 		Pin *otherPin;
 		nts::IComponent *owner;
 		size_t pos;
+		bool isDirty;
 		Pin()
 			: isLinked(false), type(UNUSED),
 			value(nts::Tristate::UNDEFINED), otherPin(nullptr),
-			owner(nullptr), pos(0)
+			owner(nullptr), pos(0), isDirty(true)
 		{}
     };
 }

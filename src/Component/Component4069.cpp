@@ -37,6 +37,9 @@ nts::Component4069::~Component4069()
 nts::Tristate nts::Component4069::compute(size_t pin)
 {
 	pin -= 1;
+	if (!_pins[pin].isDirty)
+		return _pins[pin].value;
+	_pins[pin].isDirty = false;
 	if (_pins[pin].type == pin::OUTPUT) {
 		_pins[pin].value = inverter_gate(this->compute(pin));
 	} else if (_pins[pin].type == pin::INPUT) {

@@ -31,6 +31,7 @@ int main(int ac, char **av)
 		parser.generateGraph();
 		parseInput(av, parser);
 		parser.compute();
+		parser.setCircuitDirty();
 	    	parser.displayOutputs();
 		NanoPrompt nano(parser);
 		nano.run();

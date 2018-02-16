@@ -39,6 +39,9 @@ nts::Component4011::~Component4011()
 nts::Tristate nts::Component4011::compute(size_t pin)
 {
     pin -= 1;
+    if (!_pins[pin].isDirty)
+        return _pins[pin].value;
+    _pins[pin].isDirty = false;
     if (_pins[pin].type == pin::OUTPUT) {
         _pins[pin].value = nand_gate(this->compute(pin),
                                   this->compute(pin - 1));

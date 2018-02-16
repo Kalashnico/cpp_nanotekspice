@@ -72,6 +72,8 @@ void NanoPrompt::simulate(std::string string)
         static_cast<void>(string);
 
         _parser.compute();
+        _parser.setCircuitDirty();
+
 }
 
 

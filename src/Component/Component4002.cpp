@@ -35,6 +35,9 @@ nts::Component4002::~Component4002()
 nts::Tristate nts::Component4002::compute(size_t pin)
 {
         pin -= 1;
+        if (!_pins[pin].isDirty)
+                return _pins[pin].value;
+        _pins[pin].isDirty = false;
         if (_pins[pin].type == pin::OUTPUT) {
                 if (pin == 0){
                         nts::Tristate tmp1 = nor_gate(this->compute(2), this->compute(3));
