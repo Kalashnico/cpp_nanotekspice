@@ -38,7 +38,7 @@ nts::Tristate nts::Component4069::compute(size_t pin)
 {
 	pin -= 1;
 	if (_pins[pin].type == pin::OUTPUT) {
-		_pins[pin].value = inverter_gate(_pins[pin].value);
+		_pins[pin].value = inverter_gate(this->compute(pin));
 	} else if (_pins[pin].type == pin::INPUT) {
 		_pins[pin].value = _pins[pin].otherPin->owner->compute(
 			_pins[pin].otherPin->pos);

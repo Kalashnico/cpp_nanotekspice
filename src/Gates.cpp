@@ -34,7 +34,7 @@ nts::Tristate xor_gate(nts::Tristate a, nts::Tristate b)
 	return (a != b) ? nts::Tristate::TRUE : nts::Tristate::FALSE;
 }
 
-nts::Tristate inverter_gate(nts::Tristate &state)
+nts::Tristate inverter_gate(nts::Tristate state)
 {
 	return (state == nts::Tristate::TRUE) ? nts::Tristate::FALSE : nts::Tristate::TRUE;
 }
