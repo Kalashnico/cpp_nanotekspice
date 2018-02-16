@@ -2,7 +2,7 @@
 # One and gate
 
 .chipsets:
-false	a
+input	a
 clock	b
 output	s
 4071	gate

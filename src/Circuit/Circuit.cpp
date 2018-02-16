@@ -201,8 +201,8 @@ namespace parsing {
 		if (!chipset_cp)
 			throw ;
 
-		if (dynamic_cast<nts::ComponentInput*>(chipset_cp)== nullptr)
-			throw std::invalid_argument(name +
+		if (dynamic_cast<nts::ComponentInput*>(chipset_cp) == nullptr && dynamic_cast<nts::ComponentClock*>(chipset_cp) == nullptr)
+                        throw std::invalid_argument(name +
 				": Can't modify this Chipset.");
 		auto pin_cp = chipset_cp->getPin(pin);
 		if (!pin_cp)
