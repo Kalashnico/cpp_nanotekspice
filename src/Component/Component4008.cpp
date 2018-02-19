@@ -76,6 +76,8 @@ nts::Tristate nts::Component4008::compute(size_t pin)
                         case 12:
                                 _pins[pin].value = sum4;
                                 break;
+                        case 13:
+                                _pins[pin].value = sum4;
                 }
         }
         else if (_pins[pin].type == pin::INPUT) {
