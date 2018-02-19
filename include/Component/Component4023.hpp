@@ -1,0 +1,16 @@
+//
+// Created by jdecombe on 19/02/18.
+//
+
+#ifndef CPP_NANOTEKSPICE_COMPONENT4023_HPP
+#define CPP_NANOTEKSPICE_COMPONENT4023_HPP
+
+
+
+class Component4023 {
+
+};
+
+
+
+#endif //CPP_NANOTEKSPICE_COMPONENT4023_HPP
