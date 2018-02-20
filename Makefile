@@ -21,7 +21,9 @@ SRC	= src/main.cpp                          \
 	src/Component/Component4000.cpp      \
 	src/Component/Component4001.cpp       \
 	src/Component/Component4002.cpp      \
+	src/Component/Component4008.cpp      \
 	src/Component/Component4011.cpp       \
+	src/Component/Component4023.cpp      \
 	src/Component/Component4025.cpp      \
 	src/Component/Component4030.cpp       \
 	src/Component/Component4069.cpp       \
@@ -34,6 +36,7 @@ SRC	= src/main.cpp                          \
 	src/Component/ComponentFalse.cpp	\
 	src/Gates.cpp                         \
 	src/NanoPrompt.cpp                     \
+	src/ComponentGenerator.cpp                     \
 	src/Circuit/Circuit.cpp
 
 OBJ	= $(SRC:.cpp=.o)

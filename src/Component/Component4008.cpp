@@ -89,7 +89,7 @@ nts::Tristate nts::Component4008::compute(size_t pin)
         return _pins[pin].value;
 }
 
-nts::Component4008 *nts::Component4008(const std::string &name)
+nts::Component4008 *nts::Create4008(const std::string &name)
 {
         return new nts::Component4008(name);
 }

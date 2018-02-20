@@ -13,6 +13,7 @@
 #include <Component/ComponentFalse.hpp>
 #include <Component/ComponentTrue.hpp>
 #include <Component/ComponentClock.hpp>
+#include <Component/Component4023.hpp>
 #include "Component/ComponentInput.hpp"
 #include "Component/ComponentOutput.hpp"
 #include "Component/Component4001.hpp"
@@ -21,6 +22,7 @@
 #include "Component/Component4069.hpp"
 #include "Component/Component4071.hpp"
 #include "Component/Component4081.hpp"
+#include "ComponentGenerator.hpp"
 #include "Circuit/Circuit.hpp"
 
 namespace parsing {
@@ -91,51 +93,25 @@ namespace parsing {
 		return vec;
 	}
 
-	static std::map<std::string, std::function
-		<nts::IComponent *(std::string)>> chipsetReferenceGenerator()
-	{
-		std::map<std::string,
-			std::function<nts::IComponent *(std::string)>> map;
-
-		map["input"] = &nts::CreateInput;
-		map["output"] = &nts::CreateOutput;
-		map["clock"] = &nts::CreateClock;
-		map["4001"] = &nts::Create4001;
-		map["4011"] = &nts::Create4011;
-		map["4030"] = &nts::Create4030;
-		map["4069"] = &nts::Create4069;
-		map["4071"] = &nts::Create4071;
-		map["4081"] = &nts::Create4081;
-		map["false"] = &nts::CreateFalse;
-		map["true"] = &nts::CreateTrue;
-		return map;
-	}
 
 	static void addMapChipset(std::map<std::string, nts::IComponent *> &map,
-		const std::string &line
-	)
+		const std::string &line)
 	{
-		static auto chipsetRefs = chipsetReferenceGenerator();
 		auto words = str_to_word_tab(line);
 		if (words.size() != 2)
 			throw std::invalid_argument(
 				"Error: \"" + line + "\": Bad Line Format");
 
-		nts::IComponent *component = nullptr;
-
-		if (chipsetRefs.count(words[0]) == 0)
-			throw std::invalid_argument(
-				"Error: " + words[0] + ": Unknown chipset");
-		component = chipsetRefs[words[0]](words[1]);
 		if (map.count(words[1]) > 0)
 			throw std::invalid_argument("Key already contained");
+		nts::IComponent *component =
+			createComponent(words[0], words[1]);
 		map[words[1]] = component;
 	}
 
 	static void linkMapChipset(
 		std::map<std::string, nts::IComponent *> &map,
-		const std::string &line
-	)
+		const std::string &line)
 	{
 		auto words = str_to_word_tab(line);
 		if (words.size() != 2)

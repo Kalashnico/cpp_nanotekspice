@@ -15,6 +15,7 @@
 #include <Component/ComponentClock.hpp>
 #include <Component/ComponentTrue.hpp>
 #include <Component/ComponentFalse.hpp>
+#include <Component/Component4023.hpp>
 #include "Component/AComponent.hpp"
 
 nts::AComponent::AComponent(size_t pinNumber, std::string name)
@@ -113,35 +114,4 @@ void nts::AComponent::dump() const
 		std::cout << "Type: " << PinTypeToString(_pins[i - 1].type)
 			<< std::endl;
 	}
-}
-
-static std::map<std::string, std::function
-	<nts::IComponent *(std::string)>> chipsetReferenceGenerator()
-{
-	std::map<std::string,
-		std::function<nts::IComponent *(std::string)>> map;
-
-	map["input"] = &nts::CreateInput;
-	map["output"] = &nts::CreateOutput;
-        map["clock"] = &nts::CreateClock;
-        map["true"] = &nts::CreateTrue;
-        map["false"] = &nts::CreateFalse;
-	map["4001"] = &nts::Create4001;
-	map["4011"] = &nts::Create4011;
-	map["4030"] = &nts::Create4030;
-	map["4069"] = &nts::Create4069;
-	map["4071"] = &nts::Create4071;
-	map["4081"] = &nts::Create4081;
-	return map;
-}
-
-
-std::unique_ptr<nts::IComponent> createComponent(std::string &type,
-	std::string &name)
-{
-	static auto map = chipsetReferenceGenerator();
-
-	if (map.count(type) == 0)
-		throw std::invalid_argument(type + ": Unknown Chipset.");
-	return std::unique_ptr<nts::IComponent>(map[type](name));
 }

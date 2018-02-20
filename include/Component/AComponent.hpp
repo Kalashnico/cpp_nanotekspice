@@ -31,7 +31,4 @@ namespace nts {
 	};
 }
 
-std::unique_ptr<nts::IComponent> createComponent(std::string &type,
-						std::string &name);
-
 #endif //CPP_NANOTEKSPICE_DEFAULTCOMPONENT_HPP

@@ -18,6 +18,8 @@ nts::ComponentInput::~ComponentInput()
 nts::Tristate nts::ComponentInput::compute(size_t pin)
 {
 	(void)pin;
+	if (_pins[0].value == Tristate::UNDEFINED)
+		throw std::invalid_argument(_name + ": Input pin can't be uninitialized.");
 	return _pins[0].value;
 }
 

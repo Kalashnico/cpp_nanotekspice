@@ -18,9 +18,8 @@ namespace nts {
                         Tristate compute(size_t pin) override;
         };
 
-        Component4008 *Component4008(const std::string &name);
+        Component4008 *Create4008(const std::string &name);
 
 }
-
 
 #endif //COMPONENT4008_HPP
