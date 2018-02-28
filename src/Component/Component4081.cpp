@@ -41,8 +41,12 @@ nts::Tristate nts::Component4081::compute(size_t pin)
         return _pins[pin].value;
     _pins[pin].isDirty = false;
     if (_pins[pin].type == pin::OUTPUT) {
-        _pins[pin].value = and_gate(this->compute(pin),
-                                  this->compute(pin - 1));
+        if (pin == 2 || pin == 9)
+            _pins[pin].value = and_gate(this->compute(pin),
+                    this->compute(pin - 1));
+        else
+            _pins[pin].value = and_gate(this->compute(pin + 2),
+                    this->compute(pin + 3));
     } else if (_pins[pin].type == pin::INPUT) {
         _pins[pin].value = _pins[pin].otherPin->owner->compute(
                 _pins[pin].otherPin->pos);
