@@ -30,5 +30,5 @@ nts::Tristate nts::ComponentClock::compute(size_t pin)
 
 nts::ComponentClock *nts::CreateClock(const std::string &name)
 {
-        return new nts::ComponentClock(name, nts::Tristate::FALSE);
+        return new nts::ComponentClock(name, nts::Tristate::TRUE);
 }
