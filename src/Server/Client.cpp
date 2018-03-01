@@ -16,6 +16,8 @@ Client::~Client()
 
 void    Client::startClient()
 {
+        char *ip = "10.10.253.181";
+
         _client = socket(AF_INET, SOCK_STREAM, 0);
         if (_client < 0) {
                 std::cout << "Error creating socket." << std::endl;
@@ -25,10 +27,11 @@ void    Client::startClient()
         std::cout << "Client socket created..." << std::endl;
 
         _server_addr.sin_family = AF_INET;
-        _server_addr.sin_addr.s_addr = htons(INADDR_ANY);
         _server_addr.sin_port = htons(_portNumber);
 
-        if (connect(_client, (struct sockaddr*)&_server_addr, sizeof(_server_addr)) == 0) {
+        inet_pton(AF_INET, ip, &_server_addr.sin_addr);
+
+        if (connect(_client , (struct sockaddr*)&_server_addr, sizeof(_server_addr)) == 0) {
                 std::cout << "Connecting to server." << std::endl;
         }
         recv(_client, _buffer, BUFSIZ, 0);
@@ -64,6 +67,7 @@ void    Client::startClient()
         std::cout << "Connection terminated..." << std::endl;
         close(_client);
 }
+
 
 int     main(void) {
         Client client(4444);

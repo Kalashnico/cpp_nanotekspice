@@ -86,8 +86,8 @@ void Server::startServer()
                                 }
                         } while (*_buffer != '*');
                 } while (!_isExit);
-
-                std::cout <<  "Connection terminated..." << std::endl;
+                
+                std::cout << "\n\n=> Connection terminated with IP " << inet_ntoa(_server_addr.sin_addr);
                 _isExit = false;
                 exit(1);
         }
