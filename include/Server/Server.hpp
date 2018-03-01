@@ -22,6 +22,7 @@ class Server {
                 bool _isExit;
                 char _buffer[BUFSIZ];
                 struct sockaddr_in _server_addr;
+                struct sockaddr_in _client_addr;
                 socklen_t     _size;
 
         public:

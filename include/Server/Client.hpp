@@ -20,7 +20,7 @@ class Client {
                 int _portNumber;
                 bool _isExit;
                 char _buffer[BUFSIZ];
-                struct sockaddr_in _server_addr;
+                struct sockaddr_in _client_addr;
 
         public:
                 explicit Client(int portNumber);
