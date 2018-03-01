@@ -26,12 +26,12 @@ void    Client::startClient()
 
         std::cout << "Client socket created..." << std::endl;
 
-        _server_addr.sin_family = AF_INET;
-        _server_addr.sin_port = htons(_portNumber);
+        _client_addr.sin_family = AF_INET;
+        _client_addr.sin_port = htons(_portNumber);
 
-        inet_pton(AF_INET, ip, &_server_addr.sin_addr);
+        inet_pton(AF_INET, ip, &_client_addr.sin_addr);
 
-        if (connect(_client , (struct sockaddr*)&_server_addr, sizeof(_server_addr)) == 0) {
+        if (connect(_client , (struct sockaddr*)&_client_addr, sizeof(_client_addr)) == 0) {
                 std::cout << "Connecting to server." << std::endl;
         }
         recv(_client, _buffer, BUFSIZ, 0);
