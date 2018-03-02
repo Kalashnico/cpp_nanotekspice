@@ -2,8 +2,8 @@
 // Created by Nicolas Guerin on 28/02/2018.
 //
 
-#ifndef SERVER_HPP
-#define SERVER_HPP
+#ifndef CLIENT_HPP
+#define CLIENT_HPP
 
 #include <iostream>
 #include <string.h>
@@ -14,23 +14,22 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-class Server {
+class Client {
         private:
-                int _client;
-                int _server;
+                int _sockClient;
                 int _portNumber;
                 bool _isExit;
-                char _buffer[BUFSIZ];
+                char _message[BUFSIZ];
+                char _reply[BUFSIZ];
+                char *_ip;
                 struct sockaddr_in _server_addr;
-                struct sockaddr_in _client_addr;
-                socklen_t     _size;
 
         public:
-                explicit Server(int portNumber);
-                virtual ~Server();
+                explicit Client(int portNumber, char *ip);
+                virtual ~Client();
 
-                void startServer();
+                void    runClient();
 };
 
 
-#endif //SERVER_HPP
+#endif //CLIENT_HPP

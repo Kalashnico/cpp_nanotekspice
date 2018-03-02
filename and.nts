@@ -3,7 +3,7 @@
 
 .chipsets:
 input	a
-clock	b
+input	b
 output	s
 4071	gate
 

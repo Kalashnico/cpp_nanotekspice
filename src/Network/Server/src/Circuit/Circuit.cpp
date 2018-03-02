@@ -24,7 +24,7 @@
 #include "Component/Component4081.hpp"
 #include "ComponentGenerator.hpp"
 #include "Circuit/Circuit.hpp"
-#include "../Network/Server/include/Server/S"
+#include "../../include/Server/Server.hpp"
 
 namespace parsing {
 	/**
@@ -199,10 +199,15 @@ namespace parsing {
 
 	void Circuit::cat()
 	{
-		std::ifstream f(_fileName);
+                std::ifstream f(_fileName);
 
-		if(f.is_open())
-			std::cout << f.rdbuf() << std::endl;
+                std::ostringstream out;
+
+                if (f.is_open()) {
+                        out << f.rdbuf();
+                        strcat(reply, out.str().c_str());
+                        strcat(reply, "\n");
+                }
 	}
 
 	void Circuit::setCircuitDirty()

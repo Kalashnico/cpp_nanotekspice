@@ -6,7 +6,7 @@
 ## NanoTekSpice
 ##
 
-NAME	= nanotekspice
+NAME	= nanoserver
 
 RM	= rm -f
 
@@ -34,6 +34,7 @@ SRC	= src/main.cpp                          \
 	src/Component/ComponentTrue.cpp		\
 	src/Component/ComponentFalse.cpp	\
 	src/Gates.cpp                         \
+	src/Server.cpp                      \
 	src/NanoPrompt.cpp                     \
 	src/ComponentGenerator.cpp                     \
 	src/Circuit/Circuit.cpp
@@ -67,9 +68,6 @@ $(NAME): $(OBJ)
 	@$(CC) -o $@ $< -c $(CFLAGS) && $(COND)
 
 all: $(NAME)
-
-server:
-	make -C src/Network/Server
 
 clean:
 	@printf "$(KOTEXT) Cleaning objects"
